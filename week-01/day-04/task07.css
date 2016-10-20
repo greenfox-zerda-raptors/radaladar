@@ -1,0 +1,13 @@
+p{
+  font-size: 18px;
+  border-bottom: medium solid black;
+  border-left: medium solid black;
+  border-right: medium solid black;
+  padding: 20px 30px;
+  width: 250px;
+  margin: 0px;
+}
+
+#last {
+  border-bottom: none;
+}
