@@ -8,6 +8,9 @@ p{
   margin: 0px;
 }
 
+p:hover{
+  background-color: purple;
+}
 #last {
   border-bottom: none;
 }
