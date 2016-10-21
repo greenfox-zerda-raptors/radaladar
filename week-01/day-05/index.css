@@ -19,10 +19,15 @@ p{
 }
 
 blockquote{
+  background-image: url("https://github.com/greenfox-academy/teaching-materials/raw/master/tools-and-coding/html-css/duck.png");
+  background-repeat: no-repeat;
+  background-position: left top;
+  opacity: 0.5;
   color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-family: serif;
   font-size: 250%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 1);
   padding: 50px;
   text-align: left;
 }
@@ -35,6 +40,7 @@ li{
 header{
   position: relative;
  }
+ 
 div.pic{
   background-image: url(03.jpg);
   background-repeat: no-repeat;
@@ -54,15 +60,6 @@ div.pic{
    color: rgba(255, 255, 255, 1);
    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
  }
-
- /*.hi{
-   padding: 20px;
-   position: absolute;
-   top: 375px;
-   left: 15%;
-   width: 100%;
-
-}*/
 
 .name{
   font-size: 250%;
@@ -100,4 +97,17 @@ div.summary{
 
 .title{
   font-style: italic;
+}
+
+a{
+  padding: 0;
+  margin: 0;
+  position: relative;
+  padding-left: 50%;
+  font-family: "Helvetica", sans-serif;
+  color: black;
+}
+
+a:visited{
+  color: black;
 }
