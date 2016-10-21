@@ -1,0 +1,103 @@
+h1{
+  font-size: 250%;
+  font-family: serif;
+}
+
+h2{
+  font-family: "Helvetica", sans-serif;
+  font-variant: small-caps;
+  font-size: 180%;
+}
+
+h3{
+  font-family: "Helvetica", sans-serif;
+}
+
+p{
+  font-family: "Helvetica", sans-serif;
+  font-size: 80%;
+}
+
+blockquote{
+  color: white;
+  font-family: serif;
+  font-size: 250%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 50px;
+  text-align: left;
+}
+
+li{
+  font-family: "Helvetica", sans-serif;
+  list-style-type: square;
+}
+
+header{
+  position: relative;
+ }
+div.pic{
+  background-image: url(03.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-left: 0;
+  opacity: 1;
+  height: 500px;
+  width: 100%;
+  position: relative;
+  }
+
+.hello{
+  position: absolute;
+	 bottom: 0;
+   padding-left: 60%;
+   color: rgba(255, 255, 255, 1);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+ }
+
+ /*.hi{
+   padding: 20px;
+   position: absolute;
+   top: 375px;
+   left: 15%;
+   width: 100%;
+
+}*/
+
+.name{
+  font-size: 250%;
+  font-weight: bold;
+}
+
+article{
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+div.summary{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+ .sum{
+   padding-top:20px;
+   font-size: 100%;
+ }
+
+ .begin{
+   font-weight: bold;
+ }
+
+ div.sub{
+   padding-left: 10%;
+   padding-right: 10%;
+ }
+
+ .list{
+   font-family: serif;
+   font-style: italic;
+   font-size: 110%;
+    }
+
+.title{
+  font-style: italic;
+}
