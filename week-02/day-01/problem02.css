@@ -1,0 +1,45 @@
+.container{
+  width: 540px;
+  margin: 0 auto;
+}
+
+header{
+  background-color: aqua;
+  height: 100px;
+}
+
+aside.left{
+  background-color: orange;
+  float: left;
+  height: 500px;
+  width: 100px;
+}
+
+aside.right{
+  background-color: purple;
+  float: right;
+  height: 500px;
+  width: 100px;
+  }
+
+article{
+  background-color: red;
+  height: 500px;
+  margin-left: 120px;
+  margin-right: 120px;
+  position: relative;
+}
+
+.content{
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  position:absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+footer{
+  background-color: blue;
+  height: 100px;
+}

@@ -1,0 +1,70 @@
+div{
+  overflow: hidden;
+  width: 60%;
+}
+
+.message{
+  position:absolute;
+  width: 30%;
+  left: 15%;
+  background-color: white;
+  border: solid;
+  border-radius: 15px;
+  top: 30px;
+  overflow: visible;
+
+}
+
+.x{
+  text-align: center;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 0px;
+  margin: 0px;
+  width: 25px;
+  position: absolute;
+  right: 20px;
+  top: -10px;
+}
+
+.line1{
+  color: red;
+  padding: 1;
+  margin: 0;
+}
+
+.buttons{
+  padding-left: 50%;
+}
+
+.inline{
+  display: inline-block;
+  background-color: grey;
+  text-align: center;
+  border-radius: 5px;
+  padding: 2px 3px;
+  margin: 5px;
+  border-style: hidden;
+}
+
+p{
+  font-size: 18px;
+  border-bottom: medium solid black;
+  padding: 20px 30px;
+  margin: 0px;
+  text-align: justify;
+}
+
+img{
+  padding: 20px;
+  margin: 0px;
+  }
+
+div.left > img {
+  float: left;
+}
+
+div.right > img{
+  float: right;
+  }
