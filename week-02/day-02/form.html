@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="form.css">
+</head>
+
+<body>
+
+  <h1>Profil</h1>
+
+    <form action="">
+
+        <div class="container">
+
+            <div class="personal">
+
+              <h2>Személyes adatok</h2>
+
+                <div>
+                  <label for="name">Név<span class="asterisk">*</span></label>
+                  <input type="text" name="name">
+                </div>
+
+                <div class="columns">
+
+                  <div>
+                    <label for="birthyear">Születési éved</label>
+                    <input class="birthyear" type="text" name="birthyear" placeholder="pl. 1984">
+                  </div>
+
+                  <div>
+                    <label for="gender">Nemed</label>
+                    <input class="radio" type="radio" name="gender" value="female"><label class="radio" for="gender">Nő</label>
+                    <input class="radio" type="radio" name="gender" value="male"><label class="radio" for="gender">Férfi</label>
+                  </div>
+
+                </div>
+
+                <label for="brands">Milyen márkákat szeretsz?</label>
+                  <div class="columns">
+                    <div>
+                      <input class="checkbox" type="checkbox" name="brands" value="adidas">Adidas<br>
+                      <input class="checkbox" type="checkbox" name="brands" value="apple">Apple<br>
+                      <input class="checkbox" type="checkbox" name="brands" value="coke">Coca-Cola<br>
+                      <input class="checkbox" type="checkbox" name="brands" value="mazda">Mazda<br>
+                      <input class="checkbox" type="checkbox" name="brands" value="nike">Nike<br>
+                    </div>
+                    <div>
+                      <input class="checkbox" type="checkbox" name="brands" value="opel">Opel<br>
+                      <input class="checkbox" type="checkbox" name="brands" value="rayban">Ray-Ban<br>
+                      <input class="checkbox" type="checkbox" name="brands" value="starbucks">Starbucks<br>
+                      <input class="checkbox" type="checkbox" name="brands" value="tesla">Tesla<br>
+                      <input class="checkbox" type="checkbox" name="brands" value="yahoo">Yahoo<br>
+                    </div>
+                  </div>
+                </div>
+
+      <div class="kapcsolat">
+
+        <h2>Kapcsolat</h2>
+
+        <div>
+          <label for="phone">Telefonszám<span class="asterisk">*</span></label>
+          <input type="text" name="phone" placeholder="+36 -- --- ----">
+        </div>
+
+        <div>
+          <label for="email">E-mail cím<span class="asterisk">*</span>
+          </label><input type="text" name="email" placeholder="nev@domain.hu">
+        </div>
+
+        <div>
+          <label for="facebook">Facebook profile</label>
+          <input type="text" name="facebook" placeholder="http://facebook.com/...">
+        </div>
+
+        <div>
+          <label for="twitter">Twitter profile</label>
+          <input type="text" name="twitter" placeholder="http://twitter.com/...">
+        </div>
+
+        <div>
+          <label for="house">Milyen házban laksz?</label>
+          <select name="house">
+            <option selected disabled>Válassz típust!</option>
+            <option value="block">Panel</option>
+            <option value="garden">Kertes</option>
+          </select>
+        </div>
+
+      </div>
+
+    </div>
+
+      <div class="bio">
+        <label for="bio">Bemutatkozás<span class="asterisk">*</span></label>
+        <input type="text" name="bio" placeholder="Írj magadról pár mondatot!">
+      </div>
+
+      <div id="cv">
+        <label for="cv">CV feltöltése</lable>
+        <label class="cv" for="cv" class="cv">FILE KIVÁLASZTÁSA</label><input id="cv" type="file">
+      </div>
+
+      <div class="terms">
+        <label for="terms"><input id="terms" type="checkbox" name="terms" value="terms">Elfogadom a <span class="termsandconditions"><a href="">felhasználási feltételeket</a></span></label>
+      </div>
+
+      <div>
+        <input class="reset" type="reset" value="ŰRLAP TÖRLÉSE">
+        <input class="submit" type="submit" value="MENTÉS">
+      </div>
+
+    </form>
+
+
+
+</body>
