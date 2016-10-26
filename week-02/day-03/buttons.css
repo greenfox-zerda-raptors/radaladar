@@ -1,0 +1,63 @@
+div{
+margin: 30px;
+}
+.button{
+  display: inline;
+  width: 100px;
+  padding: 12px;
+  margin: 20px;
+  text-align: center;
+  border: 1px solid #77aaaa;
+  font-family: Arial sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(175,180,181,1);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(175,180,181,1);
+  box-shadow: 0px 0px 5px 2px rgba(175,180,181,1);
+}
+
+div a:nth-child(1){
+  color: grey;
+  background: #f6f8f9;
+  background: linear-gradient(top, #f6f8f9 18%, #d7dee3 98%);
+  background: -webkit-linear-gradient(top, #f6f8f9 18%, #d7dee3 98%);
+  background: -moz-linear-gradient(top, #f6f8f9 18%, #d7dee3 98%);
+}
+
+div a:nth-child(1):hover{
+  background: #d7d33e;
+  background: linear-gradient(bottom, #f6f8f9 18%, #d7dee3 98%);
+  background: -webkit-linear-gradient(bottom, #f6f8f9 18%, #d7dee3 98%);
+  background: -moz-linear-gradient(bottom, #f6f8f9 18%, #d7dee3 98%);
+}
+
+div a:nth-child(2){
+  background: #2ccfdd;
+  background: linear-gradient(top, #2ccfdd 18%, #207cca 98%);
+  background: -webkit-linear-gradient(top, #2ccfdd 18%, #207cca 98%);
+  background: -moz-linear-gradient(top, #2ccfdd 18%, #207cca 98%);
+}
+
+div a:nth-child(2):hover{
+  background: #207cca;
+  background: linear-gradient(bottom, #2ccfdd 18%, #207cca 98%);
+  background: -webkit-linear-gradient(bottom, #2ccfdd 18%, #207cca 98%);
+  background: -moz-linear-gradient(bottom, #2ccfdd 18%, #207cca 98%);
+}
+
+div a:nth-child(3){
+  border-radius: 20px;
+  background: #ff0000;
+  background: radial-gradient(center, #0000ff 18%, #ff0000 98%);
+  background: -webkit-radial-gradient(center, #0000ff 18%, #ff0000 98%);
+  background: -moz-radial-gradient(center, #0000ff 18%, #ff0000 98%);
+}
+
+div a:nth-child(3):hover{
+  background: #0000ff;
+  background: radial-gradient(center, #ff0000 18%, #0000ff 98%);
+  background: -webkit-radial-gradient(center, #ff0000 18%, #0000ff 98%);
+  background: -moz-radial-gradient(center, #ff0000 18%, #0000ff 98%);
+}
