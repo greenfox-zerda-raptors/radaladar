@@ -1,0 +1,84 @@
+body{
+  margin: 0px;
+  background-color: white;
+  background: -webkit-linear-gradient(top, #ffffff 0%, rgb(246, 246, 246) 10%);
+  background: -moz-linear-gradient(top, #ffffff 0%, rgb(246, 246, 246) 10%);
+  background: linear-gradient(top, #ffffff 0%, rgb(246, 246, 246) 10%);
+}
+
+header{
+    background-color: aqua;
+    width: 100%;
+    min-height: 100px;
+    opacity: 0.2;
+  }
+
+aside{
+      background-image: url("images/logo.png");
+      background-repeat: no-repeat;
+      height: 100%;
+      width: 135px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      margin: 5px 10px 0px 10px;
+  }
+
+  #nav{
+      position: relative;
+      top: 155px;
+  }
+
+  #nav > ul{
+      font-size: 0.75em;
+      list-style-type: none;
+      padding-left: 5px;
+  }
+
+  #nav > ul > li{
+      padding: 2px;
+  }
+
+  #nav > p{
+      font-size: 0.75em;
+      padding: 0px;
+      margin: 10px 0px 0px 0px;
+  }
+
+  #nav > p + ul{
+      padding-left: 10px;
+      margin-top: 0px;
+  }
+
+  hr {
+      border: 0;
+      margin: 0;
+      height: 1px;
+      background: rgba(0, 0, 0, 0);;
+      background: -webkit-gradient(linear, left top, right top, color-stop(0%,hsla(0,0%,0%,0)), color-stop(50%,hsla(0,0%,0%,.75)), color-stop(100%,hsla(0,0%,0%,0)));
+      background: -webkit-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.75) 50%, hsla(0,0%,0%,0) 100%);
+      background:    -moz-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.75) 50%, hsla(0,0%,0%,0) 100%);
+      background:     -ms-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.75) 50%, hsla(0,0%,0%,0) 100%);
+      background:      -o-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.75) 50%, hsla(0,0%,0%,0) 100%);
+      background:         linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.75) 50%, hsla(0,0%,0%,0) 100%);
+  }
+
+article{
+    margin-left: 150px;
+    margin-right: 0px;
+    background-color: white;
+    position: relative;
+    height: auto;
+    border: 1px solid #a7d7f9;
+    padding: 20px;
+}
+
+article > h1, h2{
+  border-bottom: 1px solid grey;
+}
+
+footer{
+  width: 100%;
+  min-height: 100px;
+  }
