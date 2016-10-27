@@ -1,16 +1,68 @@
 body{
   margin: 0px;
   background-color: white;
-  background: -webkit-linear-gradient(top, #ffffff 0%, rgb(246, 246, 246) 10%);
+  background: -webkit-linear-gradient(top, #ffffff 0%, rgb(240, 246, 246) 10%);
   background: -moz-linear-gradient(top, #ffffff 0%, rgb(246, 246, 246) 10%);
   background: linear-gradient(top, #ffffff 0%, rgb(246, 246, 246) 10%);
 }
 
 header{
-    background-color: aqua;
-    width: 100%;
-    min-height: 100px;
-    opacity: 0.2;
+    margin-left: 140px;
+    height: 70px;
+    padding-left: 10px;
+    z-index: 1;
+  }
+
+  #account{
+    float: right;
+    font-size: 12px;
+  }
+
+  .controls{
+    margin-bottom: 0px;
+    padding-top: 50px;
+    font-size: 12.8px;
+    position: relative;
+  }
+
+  .controls a{
+    border-collapse:collapse;
+    margin-right: 0px;
+    display: inline;
+    width: 100px;
+    padding: 7px;
+    text-align: center;
+    border-right: 1px solid rgb(167, 215, 249);
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    font-family: sans-serif;
+    color: rgb(6, 69, 173);
+    background: rgba(255, 255, 255, 0)
+    background: linear-gradient(top, rgba(255, 255, 255, 0), 20%, rgba(185, 222, 248, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 20%, rgba(185, 222, 248, 1) 100%);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 20%, rgba(185, 222, 248, 1) 100%);
+    z-index: 100;
+  }
+
+  #first {
+    background: rgba(255, 255, 255, 1);
+    border-left: 1px solid rgb(167, 215, 249);
+  }
+
+  #right {
+    float: right;
+    position: absolute;
+    right: 0px;
+    top: 48px;
+  }
+
+  form{
+    display: inline-block;
+  }
+
+  input{
+    margin-left: 7px;
   }
 
 aside{
@@ -21,8 +73,9 @@ aside{
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 1;
+      z-index: 2;
       margin: 5px 10px 0px 10px;
+      font-family: sans-serif;
   }
 
   #nav{
@@ -72,13 +125,14 @@ article{
     height: auto;
     border: 1px solid #a7d7f9;
     padding: 20px;
-}
+    z-index: -1;
+    }
 
-article > h1, h2{
-  border-bottom: 1px solid grey;
-}
+  article > h1, h2{
+    border-bottom: 1px solid grey;
+  }
 
 footer{
-  width: 100%;
-  min-height: 100px;
-  }
+    width: 100%;
+    min-height: 100px;
+    }
