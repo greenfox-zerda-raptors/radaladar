@@ -29,7 +29,7 @@ header{
 
   .controls{
     margin-bottom: 0px;
-    padding-top: 60px;
+    padding-top: 61px;
     font-size: 12.8px;
     position: relative;
   }
@@ -54,7 +54,7 @@ header{
     z-index: 100;
   }
 
-  #first {
+  #active {
     background: rgba(255, 255, 255, 1);
     border-left: 1px solid rgb(167, 215, 249);
     z-index: 101;
@@ -64,7 +64,7 @@ header{
     float: right;
     position: absolute;
     right: 0px;
-    top: 56px;
+    top: 58px;
     z-index: 101;
   }
 
