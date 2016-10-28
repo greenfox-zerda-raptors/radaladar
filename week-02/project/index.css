@@ -21,7 +21,7 @@ header{
   width: 100% -149px;
   margin-left: 150px;
   margin-right: 0px;
-}
+  }
 
   header > div{
     font-size: 12.8px;
@@ -46,7 +46,6 @@ header{
     overflow: visible;
     z-index: 101;
   }
-
 
   header > .article{
     background: white;
@@ -103,7 +102,6 @@ header{
   #account > a{
     padding-right: 10px;
   }
-
 
 aside{
       background-image: url("images/logo.png");
@@ -195,6 +193,7 @@ article{
     margin-bottom: 0.25em;
     padding: 0;
     font-weight: normal;
+    margin-top: 0.25em;
   }
 
   h1 + p{
