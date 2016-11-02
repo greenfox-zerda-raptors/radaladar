@@ -7,9 +7,6 @@ public class Workshop20{
         // We're here at GreenFox's office and I'm a member of the "Raptors" team.
         // (with the quotation marks ;) )
         String a = "We're here at GreenFox's office and I'm a member of the \"Raptors\" team.";
-
-
-
         System.out.println(a);
     }
 }
