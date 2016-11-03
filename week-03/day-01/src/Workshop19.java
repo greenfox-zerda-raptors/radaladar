@@ -7,5 +7,6 @@ public class Workshop19{
         // Decide if "proverb" contains the "worst" word
 
         System.out.println(-1 != (proverb.indexOf("prepare")));
+        System.out.println(proverb.contains("worst"));
     }
 }
