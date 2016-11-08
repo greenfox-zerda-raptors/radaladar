@@ -4,7 +4,7 @@
 import java.util.*;
 
 public class Workshop06{
-    public static void main(String... args){
+    public static void main(String... args) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
         arrayList.add(1);
         arrayList.add(2);

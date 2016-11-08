@@ -13,4 +13,5 @@ public class Workshop22 {
         }
         System.out.println(out);
     }
+
 }
