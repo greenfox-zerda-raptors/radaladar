@@ -29,10 +29,11 @@ public class Workshop13 {
         }
     }
 
-    private static void printDirectoryContents(String pathToList) throws NullPointerException{
+    private static void printDirectoryContents(String pathToList) {
 
         File f = new File(pathToList);
         if (f.isFile()) {
+            System.out.println("This is a file. Here are the contents of its parent folder.");
             f= new File(f.getParent());
         }
         File[] paths = f.listFiles();
