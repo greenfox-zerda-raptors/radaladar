@@ -6,7 +6,7 @@ import java.util.Random;
  */
 public class Garage {
     public ArrayList<Car> cars = new ArrayList<Car>();
-     private static String[] colors = new String[]{"white", "blue", "red", "silver", "black", "green", "banana"};
+    private static String[] colors = new String[]{"white", "blue", "red", "silver", "black", "green", "banana"};
     private static String[] makes = new String[]{"Toyota", "Mazda", "BMW", "VW", "Opel", "Suzuki", "Ford", "Mercedes"};
     private static int[] engineSizes = new int[]{1100, 1400, 1600, 1800, 2500};
 

@@ -5,10 +5,11 @@ import java.util.Random;
  */
 
 public class Pirate {
-    private int intoxication;
-    private boolean isDead;
-    private boolean isSleeping;
-    private boolean hasParrot;
+    int intoxication;
+    boolean isDead;
+    boolean isSleeping;
+    boolean hasParrot;
+    boolean isCaptain;
 
     public Pirate(){
         this.intoxication = 0;
@@ -36,7 +37,6 @@ public class Pirate {
             System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
             System.out.println("The pirate passes out.");
             this.isSleeping = true;
-            this.intoxication = 0;
         }
     }
     public void die() {
@@ -66,7 +66,8 @@ public class Pirate {
         }
     }
 
-    public void setHasParrot(boolean hasParrot) {
-        this.hasParrot = hasParrot;
+    public void giveParrot() {
+        this.hasParrot = true;
+        this.isCaptain = true;
     }
 }

@@ -19,5 +19,18 @@ public class Workshop03 {
         Pirates.get(1).die();
         Pirates.get(2).brawl(Pirates.get(1));
         Pirates.get(2).brawl(Pirates.get(3));
+
+        System.out.println("------------------------------------------------------");
+
+        Ship pirateShip01 = new Ship();
+        Ship pirateShip02 = new Ship();
+        pirateShip01.fillShip(200000);
+        pirateShip02.fillShip(200000);
+        pirateShip01.status();
+        pirateShip02.status();
+        pirateShip01.battle(pirateShip02);
+        pirateShip01.status();
+        pirateShip02.status();
+
     }
 }
