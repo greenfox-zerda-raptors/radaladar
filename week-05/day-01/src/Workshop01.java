@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * Created by BB on 2016-11-14.
  */
@@ -15,12 +18,18 @@ public class Workshop01 {
         System.out.printf("This %s is %s, has %d cc engine and clocked %d km's\n", myCar3.getType(),
                 myCar3.getColor() , myCar3.getEngine(), myCar3.getKmOdometer());
 
+        System.out.println("------------------------------------------------------");
+
         myCar2.drive(1200);
         myCar3.drive(49);
+
+        System.out.println("------------------------------------------------------");
 
         Car myCar4 = new Car("Trabi", "roncs");
         myCar4.drive(6);
         System.out.println(myCar4.toString());
+
+        System.out.println("------------------------------------------------------");
 
         Car myCar05 = new Car("Opel", "white", 1400, 25);
         Car myCar06 = new Car("VW", "grey");
@@ -28,5 +37,25 @@ public class Workshop01 {
         System.out.println(myCar05.toString());
         System.out.println(myCar06.toString());
         System.out.println(myCar07.toString());
+
+        System.out.println("------------------------------------------------------");
+
+        String[] colors = new String[]{"white", "blue", "red", "silver", "black", "green", "banana"};
+        String[] makes = new String[]{"Toyota", "Mazda", "BMW", "VW", "Opel", "Suzuki", "Ford", "Mercedes"};
+        int[] engineSizes = new int[]{1100, 1400, 1600, 1800, 2500};
+
+        ArrayList<Car> lsCars = new ArrayList<Car>();
+        Random rand = new Random();
+
+        for (int i = 0; i < 40; i++){
+        lsCars.add(i,new Car(makes[rand.nextInt(makes.length)], colors[rand.nextInt(colors.length)], engineSizes[rand.nextInt(engineSizes.length)], 0));
+        }
+        for (Car thisCar: lsCars) {
+            System.out.println(thisCar.toString());
+        }
+
+        lsCars.get(0).drive(65);
+        lsCars.get(1).drive(9);
     }
+
 }
