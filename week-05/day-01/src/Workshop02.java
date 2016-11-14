@@ -13,6 +13,5 @@ public class Workshop02 {
         System.out.println(b.getPerimeter());
 
         System.out.println(Circle.countObjects());
-
     }
 }
