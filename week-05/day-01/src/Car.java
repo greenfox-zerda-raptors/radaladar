@@ -3,6 +3,7 @@
  */
 
 public class Car {
+    private static int carCount = -1;
     private String type;
     private String color;
     private int engine;
@@ -13,6 +14,7 @@ public class Car {
         this.color = color;
         this.engine = engine;
         this.kmOdometer = kmOdometer;
+        carCount += 1;
     }
 
     public Car(String type, String color) {
@@ -20,6 +22,7 @@ public class Car {
         this.color = color;
         this.engine = 1600;
         this.kmOdometer = 10;
+        carCount += 1;
     }
 
     public Car(int engine, int kmOdometer) {
@@ -27,6 +30,7 @@ public class Car {
         this.color = "red";
         this.engine = engine;
         this.kmOdometer = kmOdometer;
+        carCount += 1;
     }
 
     public String getType() {
@@ -41,6 +45,10 @@ public class Car {
     public int getKmOdometer() {
         return kmOdometer;
     }
+    public static int getCarCount() {
+        return carCount;
+    }
+
     public String toString(){
         return "This " + type + " is " + color + ", has a " + engine + "cc engine and clocked " + kmOdometer+ "km's";
     }

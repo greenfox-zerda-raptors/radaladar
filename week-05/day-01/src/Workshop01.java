@@ -7,7 +7,9 @@ import java.util.Random;
 
 public class Workshop01 {
     public static void main(String[] args) {
+        System.out.println("Number of Cars Available = " + Car.getCarCount());
         Car myCar1 = new Car("Mazda", "red", 6800, 12312);
+        System.out.println("Number of Cars Available = " + Car.getCarCount());
         Car myCar2 = new Car("Ford", "silver", 2500, 152312);
         Car myCar3 = new Car("Beamer", "green", 2800, 42521);
 
@@ -17,6 +19,7 @@ public class Workshop01 {
                 myCar2.getColor() , myCar2.getEngine(), myCar2.getKmOdometer());
         System.out.printf("This %s is %s, has %d cc engine and clocked %d km's\n", myCar3.getType(),
                 myCar3.getColor() , myCar3.getEngine(), myCar3.getKmOdometer());
+        System.out.println("Number of Cars Available = " + Car.getCarCount());
 
         System.out.println("------------------------------------------------------");
 
@@ -56,6 +59,7 @@ public class Workshop01 {
 
         lsCars.get(0).drive(65);
         lsCars.get(1).drive(9);
+        System.out.println("Number of Cars Available = " + Car.getCarCount());
     }
 
 }
