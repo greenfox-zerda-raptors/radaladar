@@ -60,6 +60,18 @@ public class Workshop01 {
         lsCars.get(0).drive(65);
         lsCars.get(1).drive(9);
         System.out.println("Number of Cars Available = " + Car.getCarCount());
-    }
 
+        Garage garage01 = new Garage();
+
+        for (Car thisCar: garage01.cars) {
+            System.out.println(thisCar.toString());
+        }
+
+        garage01.addRandomCar();
+        garage01.addCar(new Car("Beamer", "green", 2800, 42521));
+
+        for (Car thisCar: garage01.cars) {
+            System.out.println(thisCar.toString());
+        }
+    }
 }
