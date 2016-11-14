@@ -8,7 +8,7 @@ import java.util.Objects;
 public class DiceThrow {
         public static void main (String[] args) {
             int kockA = 6;
-            int kockB = 10;
+            int kockB = 6;
 
             int maxSum = kockA + kockB;
             int[] resultOccurrence = new int[maxSum-1];
