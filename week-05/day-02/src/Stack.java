@@ -6,9 +6,7 @@ import java.util.ArrayList;
 public class Stack {
     private ArrayList<Object> stack = new ArrayList<Object>(0);
 
-    public Stack() {
-
-    }
+    public Stack(){}
 
     public int size() {
         return stack.size();

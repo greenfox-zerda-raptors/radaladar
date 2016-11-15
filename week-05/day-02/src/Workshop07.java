@@ -28,5 +28,17 @@ public class Workshop07 {
         System.out.printf("Distance is: %.2f%n", p1.distance(p2));
         System.out.printf("Distance is: %.2f%n", p2.distance(p1));
         System.out.printf("Distance is: %.2f%n", p1.distance());
+
+        Point p = new Point(10,15);
+        Point q = new Point(12,18);
+        Line n = new Line(p,q);
+        System.out.println(n.getLength());
+        Line m = new Line (10,15,12,18);
+        System.out.println(m.getLength()); // should be the same
+        Point v = new Point();
+        Line a = new Line (v,p);
+        System.out.println(a.getLength());
+        System.out.println(p.distance()); // should be the same
+
     }
 }
