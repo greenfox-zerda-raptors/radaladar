@@ -9,5 +9,6 @@ public class Workshop01 {
         bird.fly();
         bird.eat();
         bird.sleep();
+        bird.nightyNight();
     }
 }
