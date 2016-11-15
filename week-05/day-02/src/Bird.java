@@ -4,10 +4,9 @@
 public class Bird extends Animal {
 
     public Bird() {
-       super("Bird");
+       super("Bird", 2, false);
 
     }
-
     public void fly() {
         System.out.println("This bird is flying.");
     }
