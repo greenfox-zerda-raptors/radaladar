@@ -59,6 +59,7 @@ public class Workshop01 {
 
         lsCars.get(0).drive(65);
         lsCars.get(1).drive(9);
+
         System.out.println("Number of Cars Available = " + Car.getCarCount());
 
         Garage garage01 = new Garage();
