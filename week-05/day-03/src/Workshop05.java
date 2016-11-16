@@ -12,6 +12,7 @@ public class Workshop05 {
         tvModels.add("NEC MultiSync EA193Mi");
         tvModels.add("Asus VE198S");
 
+        System.out.println("Sort strings alphabetical --------");
         List<String> sortedList = tvModels.subList(0, tvModels.size());
         Collections.sort(sortedList);
         for (String str: sortedList) {
@@ -23,13 +24,15 @@ public class Workshop05 {
         model[1]= new TvModel("LG 19MB35D", "18", 2);
         model[2]= new TvModel("NEC MultiSync EA193Mi", "18",8);
         model[3]= new TvModel("Asus VE198S", "17", 6);
+
+        System.out.println("Sort objects by rtV4M --------");
         Arrays.sort(model);
         for( TvModel i: model) {
             System.out.println(i.toString());
         }
 
+        System.out.println("Sort objects by name, with comparator --------");
         Arrays.sort(model, ModelNameComparator);
-
         for( TvModel i: model) {
             System.out.println(i.toString());
         }
