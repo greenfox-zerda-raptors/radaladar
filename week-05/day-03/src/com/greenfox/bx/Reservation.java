@@ -33,7 +33,7 @@ public class Reservation implements Reservationy {
 
     @Override
     public void setCodeBooking(String codeBooking) {
-        this.codeBooking = randomZeroToZ(8);
+        this.codeBooking = codeBooking;
     }
 
     @Override
@@ -42,6 +42,7 @@ public class Reservation implements Reservationy {
     }
 
     @Override
+    /// Or something like this
     public boolean PlaceReserved(String dowBooking, String codeBooking) {
         if (dowBooking.equals(this.dowBooking) && codeBooking.equals(this.codeBooking) ) {
             return true;
@@ -51,6 +52,7 @@ public class Reservation implements Reservationy {
     }
 
     @Override
+    /// Or something like this
     public boolean PlaceCancelled(String dowBooking, String codeBooking) {
         return !(this.PlaceReserved(dowBooking, codeBooking));
     }
