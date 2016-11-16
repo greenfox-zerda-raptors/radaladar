@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 /**
  * Created by BB on 2016-11-16.
  */
@@ -6,10 +8,15 @@ public class TvModel implements Comparable<TvModel> {
     private String size;
     private int rtV4M;
 
+
     public TvModel(String name, String size, int rtV4M) {
         this.name = name;
         this.size = size;
         this.rtV4M = rtV4M;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String toString(){
@@ -26,5 +33,4 @@ public class TvModel implements Comparable<TvModel> {
             return -1;
         }
     }
-
 }
