@@ -6,9 +6,7 @@ package main.java.music;
 public class ElectricBassGuitar extends StringedInstrument{
 
     public ElectricBassGuitar() {
-        this.name = "Electric bass guitar";
-        this.numberOfStrings = 4;
-        this.sound = "duum-duum-duum";
+        this(4);
     }
     public ElectricBassGuitar(int strings) {
         this.name = "Electric bass guitar";

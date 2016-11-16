@@ -52,11 +52,7 @@ public class Reservation implements Reservationy {
 
     @Override
     public boolean PlaceCancelled(String dowBooking, String codeBooking) {
-        if (dowBooking.equals(this.dowBooking) && codeBooking.equals(this.codeBooking) ) {
-            return false;
-        } else {
-            return true;
-        }
+        return !(this.PlaceReserved(dowBooking, codeBooking));
     }
 
     public String toString() {
