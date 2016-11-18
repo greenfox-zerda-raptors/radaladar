@@ -13,42 +13,40 @@ import com.greenfox.biczokb.todo.*;
 
 public class AppMethods {
 
-    public static ToDoList loadList(String fileName) {
-        ToDoList list = new ToDoList();
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                list.addToDo(new ToDoItem(line.split(" ", 2)[1]));
-                if (line.split(" ", 2)[0].equals("1")) {
-                 list.complete(list.size());
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("No previous ToDo list exists. Creating a new one.");
-            return list;
-        }
-        return list;
-    }
+    /// User interface stuff
 
     public static void title() {
-        System.out.println("=============");
-        System.out.println("TODO LIST APP");
-        System.out.println("=============");
+        System.out.println("============================================");
+        System.out.println("==                                        ==");
+        System.out.println("==               TODO LIST                ==");
+        System.out.println("==                                        ==");
     }
 
     public static void userInterface() {
-        System.out.println("\n==================");
-        System.out.println("Available commands");
-        System.out.println("==================");
-        System.out.println(" list or l      list all tasks");
-        System.out.println(" add or a       add new task");
-        System.out.println(" remove or r    remove task");
-        System.out.println(" edit or e      edit task");
-        System.out.println(" complete or c  complete task");
-        System.out.println(" help or h      print out this list");
-        System.out.println(" quit or q      save & quit program");
-        System.out.println("==================");
+        System.out.println("============================================");
+        System.out.println("==           Available commands           ==");
+        System.out.println("============================================");
+        System.out.println(" list or l             list all tasks");
+        System.out.println(" description or d      view task description");
+        System.out.println(" add or a              add new task");
+        System.out.println(" remove or r           remove task");
+        System.out.println(" edit or e             edit task name/description/due date");
+        System.out.println(" complete or c         complete task");
+        System.out.println(" help or h             print out this list");
+        System.out.println(" quit or q             save & quit program");
+        System.out.println("============================================");
     }
+
+    public static void quit() {
+        System.out.println("============================================");
+        System.out.println("==                  Bye!                  ==");
+        System.out.println("============================================");
+        System.out.println("==              PROGRAM END               ==");
+        System.out.println("============================================");
+        System.exit(0);
+    }
+
+    /// Parsing user input
 
     public static ArrayList<String> inputParser(String menuAns) {
         ArrayList<String> parsedInput = new ArrayList<String>();
@@ -60,6 +58,30 @@ public class AppMethods {
             parsedInput.add(s);
         }
         return parsedInput;
+    }
+
+    /// Loading list and saving list
+
+    public static ToDoList loadList(String fileName) {
+        ToDoList list = new ToDoList();
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if ((line.contains("///"))) {
+                    System.out.println(line.split("///",2)[1]);
+                    list.addToDo(new ToDoItem(line.split(" ",2)[1].substring(0, line.split(" ",2)[1].indexOf("///")), line.split("///",2)[1]));
+                } else {
+                    list.addToDo(new ToDoItem(line.split(" ",2)[1]));
+                }
+                if (line.split(" ", 2)[0].equals("1")) {
+                    list.complete(list.size());
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("No previous ToDo list exists. Creating a new one.");
+            return list;
+        }
+        return list;
     }
 
     public static void saveList(ToDoList list, String s) {
@@ -80,11 +102,7 @@ public class AppMethods {
         }
     }
 
-    public static void quit(ToDoList list) {
-        System.out.println("Bye!");
-        System.out.println("::::PROGRAM END::::");
-        System.exit(0);
-    }
+    /// Exception Handling ///
 
     public static void exceptionHandler(Exception e) {
         switch (e.getClass().getSimpleName()) {

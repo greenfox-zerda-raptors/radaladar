@@ -1,32 +1,50 @@
-package com.greenfox.biczokb.todo;
-
 /**
  * Created by BB on 2016-11-17.
  */
+package com.greenfox.biczokb.todo;
 
 public class ToDoItem {
     private String name;
-    private String description = "---";
     private boolean isComplete = false;
-    private String startDate = "1";
-    private String dueDate = "2";
+    private boolean hasDescription = false;
+    private boolean hasDueDate = false;
+    private String description = "";
+    private String dueDate = "";
 
-
-    /// Constructor ///
+    /// Constructors ///
 
     public ToDoItem(String name) {
         this.name = name;
     }
 
+    public ToDoItem(String name, String description) {
+        this.name = name;
+        this.hasDescription = true;
+        this.description = description;
+    }
+
     /// Methods ///
 
     public void printToDo(){
-        final String printFormat ="[ %s ]   %s  \n";
+        final String printFormat ="[ %s ]   %s  %s\n";
         String c = " ";
-        if (isComplete) {
+        String d = "";
+        if (this.isComplete) {
             c ="x";
         }
-        System.out.printf(printFormat, c, name);
+        if (this.hasDescription) {
+            d = " (...)";
+        }
+        System.out.printf(printFormat, c, this.name, d);
+    }
+
+    public void printDescription() {
+        final String printFormat ="[ %s ]   %s  \n%s\n";
+        String c = " ";
+        if (this.isComplete) {
+            c ="x";
+        }
+        System.out.printf(printFormat, c, this.name, this.description);
     }
 
     /// Getters and Setters ///
@@ -37,6 +55,14 @@ public class ToDoItem {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean hasDescription() {
+        return hasDescription;
+    }
+
+    public void setHasDescription(boolean hasDescription) {
+        this.hasDescription = hasDescription;
     }
 
     public String getDescription() {
@@ -53,14 +79,6 @@ public class ToDoItem {
 
     public void setComplete(boolean complete) {
         isComplete = complete;
-    }
-
-    public String getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
     }
 
     public String getDueDate() {

@@ -12,8 +12,7 @@ public class AppToDo {
 
         Scanner inputMenu = new Scanner(System.in);
         String menuAns;
-
-        ToDoList list = new ToDoList();
+        ToDoList list;
         list = AppMethods.loadList("C:\\Users\\BB\\Desktop\\Green Fox Academy\\radaladar\\week-05\\project - ToDoApp\\todo.txt");
 
         AppMethods.title();
@@ -32,6 +31,10 @@ public class AppToDo {
                     case "l":
                         list.printList();
                         break;
+                    case "description":
+                    case "d":
+                        list.viewDescription(Integer.valueOf(inputArray.get(1)));
+                        break;
                     case "add":
                     case "a":
                         list.addToDo(new ToDoItem(inputArray.get(1)));
@@ -45,7 +48,6 @@ public class AppToDo {
                     case "edit":
                     case "e":
                         list.editToDo(Integer.valueOf(inputArray.get(1)), inputArray.get(2), inputArray.get(3));
-                        System.out.println("Item modified.");
                         break;
                     case "complete":
                     case "c":
@@ -59,7 +61,7 @@ public class AppToDo {
                     case "quit":
                     case "q":
                         AppMethods.saveList(list,"C:\\Users\\BB\\Desktop\\Green Fox Academy\\radaladar\\week-05\\project - ToDoApp\\todo.txt");
-                        AppMethods.quit(list);
+                        AppMethods.quit();
                     default:
                         System.out.print("Please enter a valid command.");
                         break;
