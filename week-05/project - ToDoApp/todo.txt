@@ -1,6 +1,9 @@
-0 Stop shouting
-0 Take out the trash
-1 Walk the dog
-0 Walk the cat///Cats need walking too
-0 Buy groceries///Tomatoes, pasta, cheese
-0 Cook dinner
+1 Finish coding Todo App
+0 Start demo
+0 Basic functions///loading lists from .txt files#saving lists to .txt files#listing tasks#adding & removing tasks#editing & completingtasks
+0 Extra functions///task descriptions#swapping tasks#importing existing lists from .txt files
+0 File I/O
+0 User input handling///splitting user input strings at spaces#number of substrings depending on the first substring of input#first substring = command#further substrings = parameters
+0 Exception handling
+0 TEST 01 - Buy groceries
+0 TEST 02 - Cook dinner///1 small onion (chopped)#1 bell pepper (chopped)#2 tablespoons garlic powder#3 tablespoons butter#1 tablespoon salt#1 tablespoon pepper#2 cans tomato sauce#1 box spaghetti noodles

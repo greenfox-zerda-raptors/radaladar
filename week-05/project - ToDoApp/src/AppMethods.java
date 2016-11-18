@@ -42,9 +42,7 @@ public class AppMethods {
     public static void quit() {
         System.out.println("============================================");
         System.out.println("==                  Bye!                  ==");
-        System.out.println("============================================");
-        System.out.println("==              PROGRAM END               ==");
-        System.out.println("============================================");
+        System.out.println("========================== B., Biczók - 2016");
         System.exit(0);
     }
 

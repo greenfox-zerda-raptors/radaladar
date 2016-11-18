@@ -37,12 +37,16 @@ public class ToDoItem {
     }
 
     public void printDescription() {
-        final String printFormat ="[ %s ]   %s  \n%s\n";
+        final String printFormat ="[ %s ]   %s -\n\n";
         String c = " ";
         if (this.isComplete) {
             c ="x";
         }
-        System.out.printf(printFormat, c, this.name, this.description);
+        System.out.printf(printFormat, c, this.name);
+        for (String descLine:this.description.split("#")) {
+            System.out.println("                    " + descLine);
+        }
+        System.out.println("");
     }
 
     /// Getters and Setters ///
