@@ -1,8 +1,6 @@
 0 Stop shouting
-1 Take out the trash
+0 Take out the trash
 1 Walk the dog
-0 Slowly back away
-0 Doubt your own existence
-1 walk the cat
-0 aaaaaaaaaa
-0 asdasdasd
+0 Walk the cat///Cats need walking too
+0 Buy groceries///Tomatoes, pasta, cheese
+0 Cook dinner

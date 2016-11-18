@@ -36,7 +36,6 @@ public class ToDoList {
         }
     }
 
-
     /// Editing list, editing items ///
 
     public void addToDo(ToDoItem todo) {
@@ -61,11 +60,6 @@ public class ToDoList {
                 toDoList.get(x-1).setDescription(n);
                 System.out.println("Item modified.");
                 break;
-            case "due":
-            case "duedate":
-                toDoList.get(x-1).setDueDate(n);
-                System.out.println("Item modified.");
-                break;
           default:
               System.out.println("Please enter a valid command.");
               break;
@@ -74,6 +68,17 @@ public class ToDoList {
 
     public void complete(int x) {
         toDoList.get(x-1).setComplete(true);
+    }
+
+    public void swap(int x, int y) {
+        ToDoItem temp = toDoList.get(x-1);
+        toDoList.set(x-1, toDoList.get(y-1));
+        toDoList.set(y-1, temp);
+        System.out.printf("Task #%d swapped with task #%d", x, y);
+    }
+
+    public void addList(ToDoList list) {
+        toDoList.addAll(list.toDoList);
     }
 
     /// Saving list ///

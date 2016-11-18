@@ -16,7 +16,7 @@ public class AppMethods {
     /// User interface stuff
 
     public static void title() {
-        System.out.println("============================================");
+        System.out.println("========================== B., Biczók - 2016");
         System.out.println("==                                        ==");
         System.out.println("==               TODO LIST                ==");
         System.out.println("==                                        ==");
@@ -30,8 +30,10 @@ public class AppMethods {
         System.out.println(" description or d      view task description");
         System.out.println(" add or a              add new task");
         System.out.println(" remove or r           remove task");
-        System.out.println(" edit or e             edit task name/description/due date");
+        System.out.println(" edit or e             edit task name/description");
         System.out.println(" complete or c         complete task");
+        System.out.println(" swap or s             swap two tasks");
+        System.out.println(" import or i           import existing todo list");
         System.out.println(" help or h             print out this list");
         System.out.println(" quit or q             save & quit program");
         System.out.println("============================================");
@@ -53,10 +55,13 @@ public class AppMethods {
         int i = 2;
         if (menuAns.split(" ")[0].toLowerCase().equals("edit") || menuAns.split(" ")[0].toLowerCase().equals("e")) {
             i = 4;
+        } else if (menuAns.split(" ")[0].toLowerCase().equals("swap") || menuAns.split(" ")[0].toLowerCase().equals("s")){
+            i = 3;
         }
         for (String s : menuAns.split(" ", i)) {
             parsedInput.add(s);
         }
+        parsedInput.set(0, parsedInput.get(0).toLowerCase());
         return parsedInput;
     }
 
@@ -68,7 +73,6 @@ public class AppMethods {
             String line;
             while ((line = br.readLine()) != null) {
                 if ((line.contains("///"))) {
-                    System.out.println(line.split("///",2)[1]);
                     list.addToDo(new ToDoItem(line.split(" ",2)[1].substring(0, line.split(" ",2)[1].indexOf("///")), line.split("///",2)[1]));
                 } else {
                     list.addToDo(new ToDoItem(line.split(" ",2)[1]));
@@ -82,6 +86,13 @@ public class AppMethods {
             return list;
         }
         return list;
+    }
+
+    public static void importList (ToDoList list, String fileName) {
+        String toLoad = "C:\\Users\\BB\\Desktop\\Green Fox Academy\\radaladar\\week-05\\project - ToDoApp\\" + fileName +".txt";
+        ToDoList temp = loadList(toLoad);
+        list.addList(temp);
+        System.out.println("Todo list " + fileName + ".txt imported.");
     }
 
     public static void saveList(ToDoList list, String s) {

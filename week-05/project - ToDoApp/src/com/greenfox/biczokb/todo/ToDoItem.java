@@ -7,9 +7,7 @@ public class ToDoItem {
     private String name;
     private boolean isComplete = false;
     private boolean hasDescription = false;
-    private boolean hasDueDate = false;
     private String description = "";
-    private String dueDate = "";
 
     /// Constructors ///
 
@@ -79,14 +77,6 @@ public class ToDoItem {
 
     public void setComplete(boolean complete) {
         isComplete = complete;
-    }
-
-    public String getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
     }
 
 }
