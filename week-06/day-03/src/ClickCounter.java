@@ -62,11 +62,4 @@ public class ClickCounter {
             }
         });
     }
-
-    private abstract class ButtonCounterActionListener implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
-    }
 }
