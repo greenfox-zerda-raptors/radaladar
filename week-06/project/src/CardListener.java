@@ -9,6 +9,7 @@ import java.io.File;
 import java.net.URL;
 
 public class CardListener implements ActionListener {
+
     private Card card;
     private GameBoard board;
 
@@ -74,7 +75,7 @@ public class CardListener implements ActionListener {
             } else {
                 System.err.println("Couldn't find file");
             }
-            JOptionPane.showMessageDialog(null, "\nA WINNER IS YOU!", "You win!", JOptionPane.INFORMATION_MESSAGE, icon);
+            JOptionPane.showMessageDialog(null, "", "A WINNER IS YOU!", JOptionPane.INFORMATION_MESSAGE, icon);
 
             System.exit(0);
         }
