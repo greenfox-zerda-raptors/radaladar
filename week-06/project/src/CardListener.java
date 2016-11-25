@@ -1,9 +1,12 @@
 /// Created by BB on 2016-11-25.
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.net.URL;
 
 public class CardListener implements ActionListener {
     private Card card;
@@ -63,9 +66,16 @@ public class CardListener implements ActionListener {
 
     private void gameWon(){
         if (board.getAllMatches() == 8) {
-            Toolkit tk = Toolkit.getDefaultToolkit();
-            tk.beep();
-            JOptionPane.showMessageDialog(null, "A WINNER IS YOU!");
+            playSound("C:\\Users\\BB\\Desktop\\Green Fox Academy\\radaladar\\week-06\\project\\src\\pikapi.wav");
+            java.net.URL imgURL = getClass().getResource("win.gif");
+            ImageIcon icon = new ImageIcon();
+            if (imgURL != null) {
+                icon = new ImageIcon(imgURL);
+            } else {
+                System.err.println("Couldn't find file");
+            }
+            JOptionPane.showMessageDialog(null, "\nA WINNER IS YOU!", "You win!", JOptionPane.INFORMATION_MESSAGE, icon);
+
             System.exit(0);
         }
     }
@@ -87,4 +97,14 @@ public class CardListener implements ActionListener {
             }
         });
     }
+
+    private void playSound(String sound){
+        try {
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(new File(sound)));
+            clip.start();
+            } catch (Exception exc) {
+                exc.printStackTrace(System.out);
+            }
+        }
 }
