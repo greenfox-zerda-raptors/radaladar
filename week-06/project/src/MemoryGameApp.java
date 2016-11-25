@@ -7,7 +7,8 @@ public class MemoryGameApp {
 
     public static void main(String[] args) {
         GameBoard b = new GameBoard();
-        b.setPreferredSize(new Dimension(700,700));
+        b.setTitle("Memory Game - Gotta Catch 'Em All!");
+        b.setPreferredSize(new Dimension(675, 675));
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension dim = tk.getScreenSize();
         int xPos = ((dim.width/2)-(b.getWidth()/2));

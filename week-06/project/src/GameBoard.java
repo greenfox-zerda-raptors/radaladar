@@ -15,6 +15,19 @@ public class GameBoard extends JFrame {
     /// Constructor
 
     public GameBoard() {
+        this.shuffleCards();
+        JPanel panel = new JPanel();
+        panel.setBackground(new Color(255,255,255));
+        panel.setLayout(new GridLayout(4, 4, 0, 0));
+        for (Card card : cards) {
+            panel.add(card);
+        }
+        this.add(panel);
+    }
+
+    /// Methods
+
+    public void shuffleCards() {
         ArrayList<Integer> cardIds = new ArrayList<>();
         for (int i = 1; i <= 8; i++) {
             cardIds.add(i);
@@ -26,12 +39,6 @@ public class GameBoard extends JFrame {
             card.addActionListener(new CardListener(card, this));
             cards.add(card);
         }
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 4, 0, 0));
-        for (Card card : cards) {
-            panel.add(card);
-        }
-        this.add(panel);
     }
 
     /// Getters and Setters

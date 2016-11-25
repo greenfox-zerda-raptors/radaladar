@@ -12,9 +12,11 @@ public class Card extends JButton {
 
     public Card(int id) {
         this.setBorderPainted(false);
+        this.setFocusPainted(false);
+        this.setContentAreaFilled(false);
         this.setPreferredSize(new Dimension(150,150));
         this.id = id;
-        this.setImageIcon("back.png");
+        this.setImageIcon("button.png");
     }
 
     /// Getters and Setters
@@ -45,7 +47,6 @@ public class Card extends JButton {
         }
         this.icon = icon;
         this.setIcon(this.icon);
-        this.invalidate();
         this.validate();
         this.repaint();
     }

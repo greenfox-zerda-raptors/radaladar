@@ -1,6 +1,7 @@
 /// Created by BB on 2016-11-25.
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -62,7 +63,9 @@ public class CardListener implements ActionListener {
 
     private void gameWon(){
         if (board.getAllMatches() == 8) {
-            JOptionPane.showMessageDialog(null, "You win!");
+            Toolkit tk = Toolkit.getDefaultToolkit();
+            tk.beep();
+            JOptionPane.showMessageDialog(null, "A WINNER IS YOU!");
             System.exit(0);
         }
     }
@@ -75,7 +78,7 @@ public class CardListener implements ActionListener {
                     Thread.sleep(500);
                     for (Card c : board.getCards()) {
                         if (!c.isMatched()) {
-                            c.setImageIcon("back.png");
+                            c.setImageIcon("button.png");
                         }
                     }
                 } catch (Exception ex) {
