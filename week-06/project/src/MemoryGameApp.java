@@ -7,7 +7,7 @@ public class MemoryGameApp {
 
     public static void main(String[] args) {
         GameBoard b = new GameBoard();
-        b.setTitle("Memory Game - Gotta Catch 'Em All!             BBiczok, 2016");
+        b.setTitle("Memory Game - Gotta Catch 'Em All! ϞϞ(๑⚈ ․̫ ⚈๑)∩    BBiczok, 2016");
         b.setPreferredSize(new Dimension(675, 675));
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension dim = tk.getScreenSize();
