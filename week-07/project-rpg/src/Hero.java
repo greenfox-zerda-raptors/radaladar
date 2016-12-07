@@ -23,5 +23,24 @@ public class Hero extends Character {
         this.sp = this.sp+dice(1);
     }
 
-
+    public void faceDirection(int i) {
+        switch (i) {
+            case 1:
+                this.filename = "src/images/hero-up.png";
+                this.setImage();
+                break;
+            case 2:
+                this.filename = "src/images/hero-right.png";
+                this.setImage();
+                break;
+            case 3:
+                this.filename = "src/images/hero-down.png";
+                this.setImage();
+                break;
+            case 4:
+                this.filename = "src/images/hero-left.png";
+                this.setImage();
+                break;
+        }
+    }
 }

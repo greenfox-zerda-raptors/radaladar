@@ -6,6 +6,7 @@ public class Map {
     private static int level = 0;
     private int[][] mapFloor;
     private ArrayList<Tile> tiles = new ArrayList<>();
+    private Hero hero;
     private ArrayList<GameObject> entities = new ArrayList<>();
 
     public Map() {
@@ -20,7 +21,8 @@ public class Map {
                 }
             }
         }
-        this.entities.add(new Hero());
+        this.hero = new Hero();
+        this.entities.add(this.hero);
     }
 
     private int[][] generateMapFloor() {
@@ -44,5 +46,11 @@ public class Map {
     }
     public ArrayList<GameObject> getEntities() {
         return entities;
+    }
+    public Hero getHero() {
+        return hero;
+    }
+    public int[][] getMapFloor(){
+        return mapFloor;
     }
 }
