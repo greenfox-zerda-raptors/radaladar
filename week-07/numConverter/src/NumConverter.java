@@ -48,4 +48,20 @@ public class NumConverter {
         }
         return returnString.toString();
     }
+
+    static String arabicToRoman2(int arabic) {
+        StringBuilder returnString = new StringBuilder("");
+        String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        int counter = 0;
+        while (arabic > 0) {
+            if (arabic < values[counter]) {
+                counter++;
+            } else {
+                returnString.append(symbols[counter]);
+                arabic -= values[counter];
+            }
+        }
+        return returnString.toString();
+    }
 }

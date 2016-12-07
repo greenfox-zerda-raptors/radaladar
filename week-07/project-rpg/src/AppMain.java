@@ -6,7 +6,7 @@ import java.awt.*;
 public class AppMain{
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("Dungeon Crawler - - - - - - - - - - - - - - - - - - - - - - Bálint Biczók, 2016");
         Board board = new Board();
         frame.add(board);
         Toolkit tk = Toolkit.getDefaultToolkit();
