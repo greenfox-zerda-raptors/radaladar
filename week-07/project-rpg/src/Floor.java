@@ -7,6 +7,5 @@ public class Floor extends Tile {
         this.setImage();
         this.position[0] = x;
         this.position[1] = y;
-        this.isMoveable = true;
     }
 }

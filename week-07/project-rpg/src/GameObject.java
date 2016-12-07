@@ -10,8 +10,8 @@ public abstract class GameObject {
     protected int[] position = new int[2];
     protected BufferedImage image;
 
-    public GameObject() {
-    }
+    public GameObject() {}
+
     public void setImage() {
         try {
             this.image = ImageIO.read(new File(this.filename));

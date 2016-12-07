@@ -26,6 +26,16 @@ public class Map {
     }
 
     private int[][] generateMapFloor() {
+
+//        MazeObj m = new MazeObj(12,12);
+//        m.generate();
+//        int[][] map = new int[10][10];
+//        for (int i = 1; i < 11; i++){
+//            for (int j = 1; j < 11; j++) {
+//                map[i-1][j-1] = m.getData()[i][j];
+//            }
+//        }
+
         int[][] map = new int[][] {
                 {0,0,0,1,0,0,0,1,1,0},
                 {0,1,0,0,0,1,0,1,1,0},
