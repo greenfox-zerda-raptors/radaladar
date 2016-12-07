@@ -62,9 +62,9 @@ public class MoveLogic implements KeyListener {
         }
         return check;
     }
-    
+
     private boolean checkBounds(int[] check){
-        return map.getHero().position[check[0]] + check[3] >= 0;
+        return map.getHero().position[check[0]] + check[3] >= 0 && map.getHero().position[check[0]] + check[3] < 10;
     }
 
     private boolean checkWalls(int[] check){

@@ -1,6 +1,7 @@
 /// Created by BB on 2016-12-05.
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Map {
     private static int level = 0;
@@ -27,27 +28,50 @@ public class Map {
 
     private int[][] generateMapFloor() {
 
-//        MazeObj m = new MazeObj(12,12);
-//        m.generate();
-//        int[][] map = new int[10][10];
-//        for (int i = 1; i < 11; i++){
-//            for (int j = 1; j < 11; j++) {
-//                map[i-1][j-1] = m.getData()[i][j];
-//            }
-//        }
+        MazeObj m = new MazeObj(12,12);
+        m.generate();
+        int[][] map = new int[10][10];
+        for (int i = 1; i < 11; i++){
+            for (int j = 1; j < 11; j++) {
+                map[i-1][j-1] = m.getData()[i][j];
+            }
+        }
+        if (map[1][1] == 1 && map[2][1] == 0) {
+            map[1][1] = 0;
+        } else if (map[1][1] == 1 && map[2][1] == 1) {
+            map[2][1] = 0;
+        }
+        for (int i = 1; i < 9; i++) {
+            if (map[8][i-1] == 1 || map[9][i] == 1 && map[8][i+1] == 1 || map[7][i] == 1) {
+                map[8][i-1] = 0;
+            }
+        }
+        map[1][8] = 0;
+        map[5][8] = 0;
+        map[7][8] = 0;
 
-        int[][] map = new int[][] {
-                {0,0,0,1,0,0,0,1,1,0},
-                {0,1,0,0,0,1,0,1,1,0},
-                {0,1,1,1,1,1,0,0,0,0},
-                {0,0,0,0,0,1,1,1,0,1},
-                {1,1,1,1,0,1,0,1,1,0},
-                {0,1,0,1,0,0,0,1,1,0},
-                {0,1,0,1,0,1,1,0,1,0},
-                {0,0,0,0,0,1,1,0,1,0},
-                {0,1,1,1,0,0,0,0,1,0},
-                {0,0,0,1,1,1,1,0,0,0},
-        };
+        int[][] mapTrans = new int[10][10];
+        Random rand = new Random();
+        switch (rand.nextInt(3)) {
+            case 0:
+                break;
+            case 1:
+                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        mapTrans[j][i] = map[i][9 - j];
+                    }
+                }
+                map = mapTrans;
+                break;
+            case 2:
+                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        mapTrans[j][i] = map[9-i][j];
+                    }
+                }
+                map = mapTrans;
+                break;
+            }
         return map;
     }
 
