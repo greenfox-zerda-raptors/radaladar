@@ -52,6 +52,7 @@ public class MoveLogic implements KeyListener {
         }
         if (map.getHero().position[check[0]] + check[3] >= 0 && map.getMapFloor()[map.getHero().position[1] + check[1]] [map.getHero().position[0] + check[2]] == 0) {
             map.getHero().position[check[0]] += check[3];
+            playSound("src/sounds/footstep.wav");
         } else {
             playSound("src/sounds/bump.wav");
         }
