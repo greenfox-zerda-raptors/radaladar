@@ -35,28 +35,40 @@ public class MoveLogic implements KeyListener {
 
     public void move(int i){
         map.getHero().faceDirection(i);
-        int[] check = new int[4];
-        switch (i) {
-            case 1:
-                check = new int[]{1,-1,0,-1};
-                break;
-            case 2:
-                check = new int[]{0,0,1,1};
-                break;
-            case 3:
-                check = new int[]{1,1,0,1};
-                break;
-            case 4:
-                check = new int[]{0,0,-1,-1};
-                break;
-        }
-        if (map.getHero().position[check[0]] + check[3] >= 0 && map.getMapFloor()[map.getHero().position[1] + check[1]] [map.getHero().position[0] + check[2]] == 0) {
+        int[] check = moveCheck(i);
+        if (checkBounds(check) && checkWalls(check)) {
             map.getHero().position[check[0]] += check[3];
             playSound("src/sounds/footstep.wav");
         } else {
             playSound("src/sounds/bump.wav");
         }
         board.repaint();
+    }
+    private int[] moveCheck(int i) {
+        int[] check = new int[4];
+        switch (i) {
+        case 1:
+            check = new int[]{1,-1,0,-1};
+            break;
+        case 2:
+            check = new int[]{0,0,1,1};
+            break;
+        case 3:
+            check = new int[]{1,1,0,1};
+            break;
+        case 4:
+            check = new int[]{0,0,-1,-1};
+            break;
+        }
+        return check;
+    }
+    
+    private boolean checkBounds(int[] check){
+        return map.getHero().position[check[0]] + check[3] >= 0;
+    }
+
+    private boolean checkWalls(int[] check){
+        return map.getMapFloor()[map.getHero().position[1] + check[1]] [map.getHero().position[0] + check[2]] == 0;
     }
 
     private void playSound(String sound){
