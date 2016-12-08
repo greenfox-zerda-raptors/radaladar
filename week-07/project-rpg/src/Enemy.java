@@ -1,15 +1,18 @@
 /// Created by BB on 2016-12-08.
 
 public class Enemy extends  Character {
+    private boolean hasKey;
 
-    public Enemy(int[] position) {
+    public Enemy(int[] position, int level, boolean hasKey) {
         this.filename = "src/images/enemy.png";
         this.setImage();
         this.position = position;
-        this.hpMax = 2 * dice(1);
+        this.level = level;
+        this.hpMax = dice(2 * this.level);
         this.hpCurrent = this.hpMax;
         this.isDead = false;
-        this.dp = dice(1) / 2;
-        this.sp = dice(1);
+        this.dp = dice(this.level / 2);
+        this.sp = dice(this.level);
+        this.hasKey = hasKey;
     }
 }

@@ -3,11 +3,12 @@
 import java.util.Random;
 
 public abstract class Character extends GameObject {
+    protected int level;
     protected int hpMax;
-    protected  int hpCurrent;
-    protected  boolean isDead;
-    protected  int dp;
-    protected  int sp;
+    protected int hpCurrent;
+    protected boolean isDead;
+    protected int dp;
+    protected int sp;
 
     /// Static methods
 

@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Map {
-    private static int level = 0;
+    private int level = 0;
     private int[][] mapFloor;
     private ArrayList<Tile> tiles = new ArrayList<>();
     private Hero hero;
@@ -15,7 +15,7 @@ public class Map {
     /// Constructor
 
     public Map() {
-        level += 1;
+        this.level += 1;
         this.mapFloor = generateMapFloor();
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -27,11 +27,13 @@ public class Map {
             }
         }
         this.hero = new Hero();
+        this.entities.add(new Enemy(enemyPlacement(), getMonsterLevel(), true));
         Random random = new Random();
         int numberOfEnemies = 1 + random.nextInt(3);
         for (int i = 0; i < numberOfEnemies; i++) {
-            this.entities.add(new Enemy(enemyPlacement()));
+            this.entities.add(new Enemy(enemyPlacement(), getMonsterLevel(), false));
         }
+        this.entities.add(new Boss(enemyPlacement(), getMonsterLevel()));
         this.entities.add(this.hero);
     }
 
@@ -87,15 +89,32 @@ public class Map {
         return map;
     }
 
-    private int[] enemyPlacement(){
+    private int[] enemyPlacement() {
         Random random = new Random();
         int[] position = new int[2];
         boolean goodPosition = false;
-        ArrayList<int[]> usedPositions = new ArrayList<>();
-        int[] hero = {0,0};
-        usedPositions.add(hero);
-        for (Character entity: entities) {
-            usedPositions.add(entity.position);
+        ArrayList<int[]> usedPositions = getOccupiedCells();
+        while (!goodPosition) {
+            position[0] = random.nextInt(10);
+            position[1] = random.nextInt(10);
+            for (int[] usedPosition : usedPositions) {
+                if (position[0] == usedPosition[1] && position[1] == usedPosition[0]) {
+                    goodPosition = false;
+                    break;
+                } else {
+                    goodPosition = true;
+                }
+            }
+        }
+        return position;
+    }
+
+    private ArrayList<int[]> getOccupiedCells(){
+        ArrayList<int[]> occupiedCells = new ArrayList<>();
+        int[] hero = {0, 0};
+        occupiedCells.add(hero);
+        for (Character entity : entities) {
+            occupiedCells.add(entity.position);
         }
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -103,23 +122,23 @@ public class Map {
                     int[] wall = new int[2];
                     wall[0] = i;
                     wall[1] = j;
-                    usedPositions.add(wall);
+                    occupiedCells.add(wall);
                 }
             }
         }
-        while (!goodPosition) {
-            position[0] = random.nextInt(10);
-            position[1] = random.nextInt(10);
-            for (int[] usedPosition : usedPositions) {
-                if (position[0] == usedPosition[1] && position[1] == usedPosition[0]) {
-                goodPosition = false;
-                break;
-                } else {
-                    goodPosition = true;
-                }
-            }
+        return occupiedCells;
+    }
+
+    private int getMonsterLevel() {
+        int monsterLevel = this.level;
+        Random random = new Random();
+        int chance = random.nextInt(10);
+        if (chance > 4 && chance < 9) {
+            monsterLevel++;
+        } else if (chance > 9) {
+            monsterLevel += 2;
         }
-        return position;
+        return monsterLevel;
     }
 
     /// Getters

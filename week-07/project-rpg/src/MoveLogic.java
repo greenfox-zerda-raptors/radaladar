@@ -116,9 +116,11 @@ public class MoveLogic implements KeyListener {
     }
 
     private void strike(Character attacker, Character defender) {
-        defender.hpCurrent -= (attacker.sp - defender.dp);
-        if (defender.hpCurrent <= 0) {
-            defender.isDead = true;
+        if (attacker.sp + attacker.dice(2) > defender.dp) {
+            defender.hpCurrent -= (attacker.sp - defender.dp);
+            if (defender.hpCurrent <= 0) {
+                defender.isDead = true;
+            }
         }
     }
 
