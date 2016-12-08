@@ -1,4 +1,9 @@
-/// Created by BB on 2016-12-07.
+// Maze generator in Java
+// Joe Wingbermuehle
+// 2015-07-27
+// https://github.com/joewing/maze
+// Modified by BB, 16-12-07
+
 
 public class MazeObj{
 

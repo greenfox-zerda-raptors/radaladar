@@ -6,6 +6,8 @@ import java.io.IOException;
 
 public class Hero extends Character {
 
+    /// Constructor
+
     public Hero() {
         this.filename = "src/images/hero-down.png";
         this.setImage();
@@ -16,6 +18,8 @@ public class Hero extends Character {
         this.dp = dice(2);
         this.sp = 5 + dice(1);
     }
+
+    /// Methods
 
     public void levelUp() {
         this.hpMax = this.hpMax+dice(1);

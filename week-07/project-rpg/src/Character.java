@@ -9,6 +9,8 @@ public abstract class Character extends GameObject {
     protected  int dp;
     protected  int sp;
 
+    /// Static methods
+
     static int dice(int numberOfDice) {
         int value = 0;
         Random diceThrow = new Random();

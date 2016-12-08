@@ -10,7 +10,10 @@ public abstract class GameObject {
     protected int[] position = new int[2];
     protected BufferedImage image;
 
+    /// Constructor
     public GameObject() {}
+
+    /// Setters
 
     public void setImage() {
         try {
@@ -19,6 +22,8 @@ public abstract class GameObject {
             e.printStackTrace();
         }
     }
+
+    /// Graphics (including positioning)
 
     public void draw(Graphics graphics) {
         if (image != null) {

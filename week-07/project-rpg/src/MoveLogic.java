@@ -5,33 +5,43 @@ import javax.sound.sampled.Clip;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
+import java.util.ArrayList;
 
 public class MoveLogic implements KeyListener {
     private Board board;
     private Map map;
+
+    /// Constructor
 
     public MoveLogic(Board board,Map map) {
         this.board = board;
         this.map = map;
     }
 
+    /// Check for keys pressed
+
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
-        case KeyEvent.VK_UP:
-            move(1);
-            break;
-        case KeyEvent.VK_RIGHT:
-            move(2);
-            break;
-        case KeyEvent.VK_DOWN:
-            move(3);
-            break;
-        case KeyEvent.VK_LEFT:
-            move(4);
-            break;
+            case KeyEvent.VK_SPACE:
+                fight();
+                break;
+            case KeyEvent.VK_UP:
+                move(1);
+                break;
+            case KeyEvent.VK_RIGHT:
+                move(2);
+                break;
+            case KeyEvent.VK_DOWN:
+                move(3);
+                break;
+            case KeyEvent.VK_LEFT:
+                move(4);
+                break;
         }
     }
+
+    /// Methods
 
     public void move(int i){
         map.getHero().faceDirection(i);
@@ -44,6 +54,7 @@ public class MoveLogic implements KeyListener {
         }
         board.repaint();
     }
+
     private int[] moveCheck(int i) {
         int[] check = new int[4];
         switch (i) {
@@ -69,6 +80,46 @@ public class MoveLogic implements KeyListener {
 
     private boolean checkWalls(int[] check){
         return map.getMapFloor()[map.getHero().position[1] + check[1]] [map.getHero().position[0] + check[2]] == 0;
+    }
+
+    private void fight() {
+        ArrayList<Character> enemies = new ArrayList<>(map.getEntities());
+        enemies.remove(enemies.size()-1);
+        Hero hero = map.getHero();
+        Character enemyToFight = searchEnemy(enemies, hero);
+        if (enemyToFight != null) {
+            if (!(enemyToFight.isDead)) {
+                strike(hero, enemyToFight);
+                playSound("src/sounds/attack.wav");
+            }
+            if (!(enemyToFight.isDead)) {
+                strike(enemyToFight,hero);
+            } else {
+                playSound("src/sounds/death.wav");
+                map.getEntities().remove(enemyToFight);
+            }
+            if (hero.isDead){
+                /// SOMETHING HERE IF HERO DIES
+            }
+        }
+        board.repaint();
+    }
+
+    private Character searchEnemy(ArrayList<Character> enemies, Hero hero) {
+        Character enemyToFight = null;
+        for (Character enemy : enemies) {
+            if (enemy.position[0] == hero.position[0] && enemy.position[1] == hero.position[1]) {
+                enemyToFight = enemy;
+            }
+        }
+        return enemyToFight;
+    }
+
+    private void strike(Character attacker, Character defender) {
+        defender.hpCurrent -= (attacker.sp - defender.dp);
+        if (defender.hpCurrent <= 0) {
+            defender.isDead = true;
+        }
     }
 
     private void playSound(String sound){
