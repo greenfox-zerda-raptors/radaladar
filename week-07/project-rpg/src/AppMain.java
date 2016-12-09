@@ -8,7 +8,7 @@ public class AppMain{
     public static void main(String[] args) {
         int level = 1;
         Hero hero = new Hero();
-        JFrame frame = new JFrame("╰༼.◕ヮ◕.༽つ¤=[]———— Dungeon Crawler ———— []=¤ԅ༼ ☯ 〜 ☯ ༽╯ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  Bálint Biczók, 2016");
+        JFrame frame = new JFrame("╰༼.◕ヮ◕.༽つ¤=[]———— Dungeon Crawler ———— []=¤ԅ༼ ☯ 〜 ☯ ༽╯ - - - - - - - - -  Bálint Biczók, 2016");
         JPanel panel = new JPanel();
         frame.add(panel);
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));

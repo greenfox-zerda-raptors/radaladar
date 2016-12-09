@@ -7,25 +7,24 @@ public abstract class Character extends GameObject {
     protected int hpMax;
     protected int hpCurrent;
     protected boolean isDead;
-    protected int dp;
-    protected int sp;
+    protected int defense;
+    protected int attack;
 
-    /// Static methods
+    /// Constructor
+
+    public Character(int level, int hpMax, int defense, int attack) {
+        this.level = level;
+        this.hpMax = hpMax;
+        this.hpCurrent = this.hpMax;
+        this.isDead = false;
+        this.defense = defense;
+        this.attack = attack;
+    }
+
+    /// Methods
+
     public String toString() {
         StringBuilder returnString = new StringBuilder();
-        if (this instanceof Hero) {
-            returnString.append("Hero");
-        }
-        if (this instanceof Enemy) {
-            returnString.append("Faceflower");
-            Enemy keyholder = (Enemy) this;
-            if (keyholder.hasKey()) {
-                returnString.append(" Keyholder");
-            }
-        }
-        if (this instanceof Boss) {
-            returnString.append("Overgrowth Warlock");
-        }
         returnString.append("<br>Level: ");
         returnString.append(level);
         returnString.append("<br>");
@@ -34,16 +33,17 @@ public abstract class Character extends GameObject {
         returnString.append(" / ");
         returnString.append(hpCurrent);
         returnString.append(" | ATK: ");
-        returnString.append(sp);
+        returnString.append(attack);
         returnString.append(" | DEF: ");
-        returnString.append(dp);
+        returnString.append(defense);
         return returnString.toString();
     }
+
     static int dice(int numberOfDice) {
         int value = 0;
         Random diceThrow = new Random();
         for (int i = 0; i < numberOfDice; i++) {
-            value += diceThrow.nextInt(6)+1 ;
+            value += (diceThrow.nextInt(6) + 1);
         }
         return value;
     }

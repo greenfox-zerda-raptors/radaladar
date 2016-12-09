@@ -5,15 +5,10 @@ public class Hero extends Character {
     /// Constructor
 
     public Hero() {
+        super(1, 20 + dice(3), dice(2),  5 + dice(1));
         this.filename = "src/images/hero-down.png";
         this.setImage();
-        this.level = 1;
         this.position = new int[] {0,0};
-        this.hpMax = 20 + dice(3);
-        this.hpCurrent = this.hpMax;
-        this.isDead = false;
-        this.dp = dice(2);
-        this.sp = 5 + dice(1);
     }
 
     /// Methods
@@ -21,8 +16,8 @@ public class Hero extends Character {
     public void levelUp() {
         this.level++;
         this.hpMax = this.hpMax+dice(1);
-        this.dp = this.dp+dice(1);
-        this.sp = this.sp+dice(1);
+        this.defense = this.defense+dice(1);
+        this.attack = this.attack+dice(1);
     }
 
     public void faceDirection(int i) {
@@ -44,5 +39,12 @@ public class Hero extends Character {
                 this.setImage();
                 break;
         }
+    }
+
+    public String toStrin(){
+        StringBuilder returnString = new StringBuilder();
+        returnString.append("Hero");
+        returnString.append(super.toString());
+        return returnString.toString();
     }
 }

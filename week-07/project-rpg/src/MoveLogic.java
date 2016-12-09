@@ -1,11 +1,8 @@
 /// Created by BB on 2016-12-07.
 
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -38,24 +35,38 @@ public class MoveLogic implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_SPACE:
-                fight();
+                if (hero.isDead) {
+                    hero.isDead = false;
+                    worldReset(false);
+                } else {
+                    fight();
+                }
                 checkWorldState();
                 break;
             case KeyEvent.VK_UP:
-                move(1);
-                checkWorldState();
+                if (!hero.isDead) {
+                    move(1);
+                    checkWorldState();
+                }
                 break;
             case KeyEvent.VK_RIGHT:
-                move(2);
-                checkWorldState();
+                if (!hero.isDead) {
+                    move(2);
+                    checkWorldState();
+                }
                 break;
             case KeyEvent.VK_DOWN:
-                move(3);
-                checkWorldState();
+                if (!hero.isDead) {
+                    move(3);
+                    checkWorldState();
+                }
                 break;
             case KeyEvent.VK_LEFT:
-                move(4);
-                checkWorldState();
+                if (!hero.isDead) {
+                    move(4);
+                    hero.isDead = true;
+                    checkWorldState();
+                }
                 break;
         }
     }
@@ -67,9 +78,9 @@ public class MoveLogic implements KeyListener {
         int[] check = moveCheck(i);
         if (checkBounds(check) && checkWalls(check)) {
             map.getHero().position[check[0]] += check[3];
-            playSound("src/sounds/footstep.wav");
+            SoundPlayer.playFX(SoundPlayer.footstep);
         } else {
-            playSound("src/sounds/bump.wav");
+            SoundPlayer.playFX(SoundPlayer.bump);
         }
         moveCount++;
         if (moveCount == 2) {
@@ -127,6 +138,8 @@ public class MoveLogic implements KeyListener {
         }
     }
 
+    /// Fighting
+
     private void fight() {
         ArrayList<Character> enemies = new ArrayList<>(map.getEntities());
         enemies.remove(enemies.size()-1);
@@ -135,14 +148,15 @@ public class MoveLogic implements KeyListener {
         if (enemyToFight != null) {
             if (!(enemyToFight.isDead)) {
                 strike(hero, enemyToFight);
-                playSound("src/sounds/attack.wav");
             }
             if (!(enemyToFight.isDead)) {
                 strike(enemyToFight,hero);
             } else {
-                playSound("src/sounds/death.wav");
+                SoundPlayer.playFX(SoundPlayer.death);
                 map.getEntities().remove(enemyToFight);
             }
+        } else {
+            SoundPlayer.playFX(SoundPlayer.miss);
         }
         board.repaint();
     }
@@ -158,35 +172,44 @@ public class MoveLogic implements KeyListener {
     }
 
     private void strike(Character attacker, Character defender) {
-        if (attacker.sp + attacker.dice(2) > defender.dp) {
-            defender.hpCurrent -= (attacker.sp - defender.dp);
+        int attackValue = attacker.attack + attacker.dice(2);
+        if (attackValue > defender.defense) {
+            SoundPlayer.playFX(SoundPlayer.attack);
+            defender.hpCurrent -= (attackValue - defender.defense);
             if (defender.hpCurrent <= 0) {
                 defender.isDead = true;
             }
+        } else if (attacker == hero){
+            SoundPlayer.playFX(SoundPlayer.miss);
         }
     }
+
+    /// Board & World Stuff
 
     private void labelUpdate() {
         StringBuilder labelText = new StringBuilder();
         labelText.append("<html>Level ");
         labelText.append(level);
         labelText.append("<br><br><br>");
-        ArrayList<Character> enemies = new ArrayList<>(map.getEntities());
-        enemies.remove(enemies.size()-1);
-        Hero hero = map.getHero();
-        labelText.append(hero.toString());
-        Character enemyToFight = searchEnemy(enemies, hero);
-        if (enemyToFight != null) {
-            labelText.append("<br><br><br>");
-            labelText.append(enemyToFight.toString());
+        if (hero.isDead){
+            labelText.append("YOU DIED!<br><br>The Overgrowth Warlock <br>and their Faceflowers <br>have taken over the world.<br><br>Press space to restart.");
+        } else {
+            ArrayList<Character> enemies = new ArrayList<>(map.getEntities());
+            enemies.remove(enemies.size()-1);
+            Hero hero = map.getHero();
+            labelText.append(hero.toString());
+            Character enemyToFight = searchEnemy(enemies, hero);
+            if (enemyToFight != null) {
+                labelText.append("<br><br><br>");
+                labelText.append(enemyToFight.toString());
+            }
         }
         label.setText(labelText.toString());
     }
 
     private void checkWorldState(){
         if (map.getHero().isDead) {
-            playSound("src/sounds/playerdeath.wav");
-            /// new game
+            heroDeath();
         }
         ArrayList<Character> enemies = new ArrayList<>(map.getEntities());
         enemies.remove(enemies.size()-1);
@@ -202,33 +225,43 @@ public class MoveLogic implements KeyListener {
             }
         }
         if (counter == 0) {
-            level++;
-            hero.levelUp();
-            hero.position = new int[]{0,0};
-            hero.faceDirection(3);
-            System.out.println(level);
-            panel.remove(board);
-            board = new Board(panel,label, level, hero);
-            System.out.println(level);
-            panel.add(board);
-            board.grabFocus();
-            panel.revalidate();
-            panel.repaint();
+            worldReset(true);
         } else {
             labelUpdate();
         }
     }
-
-    private void playSound(String sound){
-        try {
-            Clip clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(new File(sound)));
-            clip.start();
-        } catch (Exception exc) {
-            exc.printStackTrace(System.out);
-        }
+    private void heroDeath(){
+        labelUpdate();
+        SoundPlayer.loopStop();
+        SoundPlayer.playFX(SoundPlayer.playerDeath);
+        SoundPlayer.playBackGround(SoundPlayer.playerDeathTheme);
     }
 
+    private void worldReset(boolean win){
+        if (win) {
+            level++;
+            hero.levelUp();
+            Random random = new Random();
+            int chance = random.nextInt(10);
+            if (chance > 4 && chance < 9) {
+                hero.hpCurrent += hero.hpMax / 3;
+            } else if (chance > 9) {
+                hero.hpCurrent = hero.hpMax;
+            } else {
+                hero.hpCurrent += hero.hpMax / 10;
+            }
+        } else {
+            hero.hpCurrent = hero.hpMax;
+        }
+        hero.position = new int[]{0,0};
+        hero.faceDirection(3);
+        panel.remove(board);
+        board = new Board(panel,label, level, hero);
+        panel.add(board);
+        board.grabFocus();
+        panel.revalidate();
+        panel.repaint();
+    }
     ///Unused Overrides
     @Override
     public void keyTyped(KeyEvent e) {}
