@@ -3,26 +3,24 @@
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
-import java.util.concurrent.TimeUnit;
 
 public class SoundPlayer {
-    static File openingTheme = new File("src/sounds/opening_theme.wav");
-    static File dungeonTheme = new File("src/sounds/dungeon_theme.wav");
-    static File footstep = new File("src/sounds/footstep.wav");
-    static File bump = new File("src/sounds/bump.wav");
-    static File attack = new File("src/sounds/attack.wav");
-    static File miss = new File("src/sounds/miss.wav");
-    static File death = new File("src/sounds/enemydeath.wav");
-    static File nextLevel = new File("src/sounds/nextlevel.wav");
-    static File playerDeath = new File("src/sounds/playerdeath.wav");
-    static File playerDeathTheme = new File("src/sounds/playerdeath_theme.wav");
-    static private Clip loop;
-    static private Clip fx;
 
+    static final File openingTheme = new File("src/sounds/opening_theme.wav");
+    static final File dungeonTheme = new File("src/sounds/dungeon_theme.wav");
+    static final File footstep = new File("src/sounds/footstep.wav");
+    static final File bump = new File("src/sounds/bump.wav");
+    static final File attack = new File("src/sounds/attack.wav");
+    static final File miss = new File("src/sounds/miss.wav");
+    static final File death = new File("src/sounds/enemydeath.wav");
+    static final File nextLevel = new File("src/sounds/nextlevel.wav");
+    static final File playerDeath = new File("src/sounds/playerdeath.wav");
+    static final File playerDeathTheme = new File("src/sounds/playerdeath_theme.wav");
+    static private Clip loop;
 
     static public void playFX(File audio){
         try {
-            fx = AudioSystem.getClip();
+            Clip fx = AudioSystem.getClip();
             fx.open(AudioSystem.getAudioInputStream(audio));
             fx.start();
         } catch (Exception exc) {
@@ -47,7 +45,4 @@ public class SoundPlayer {
         loop.stop();
         }
     }
-
-
-
 }

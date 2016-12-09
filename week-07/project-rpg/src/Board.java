@@ -36,4 +36,5 @@ public class Board extends JComponent {
             entity.draw(graphics);
         }
     }
+
 }

@@ -64,7 +64,6 @@ public class GameLogic implements KeyListener {
             case KeyEvent.VK_LEFT:
                 if (!hero.isDead) {
                     move(4);
-                    hero.isDead = true;
                     checkWorldState();
                 }
                 break;
@@ -230,7 +229,10 @@ public class GameLogic implements KeyListener {
             labelUpdate();
         }
     }
+
     private void heroDeath(){
+        hero.filename = "src/images/hero-dead.png";
+        hero.setImage();
         labelUpdate();
         SoundPlayer.loopStop();
         SoundPlayer.playFX(SoundPlayer.playerDeath);
@@ -262,6 +264,7 @@ public class GameLogic implements KeyListener {
         panel.revalidate();
         panel.repaint();
     }
+
     ///Unused Overrides
     @Override
     public void keyTyped(KeyEvent e) {}

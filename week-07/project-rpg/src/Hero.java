@@ -41,9 +41,9 @@ public class Hero extends Character {
         }
     }
 
-    public String toStrin(){
+    public String toString(){
         StringBuilder returnString = new StringBuilder();
-        returnString.append("Hero");
+        returnString.append("Creaturobe");
         returnString.append(super.toString());
         return returnString.toString();
     }
