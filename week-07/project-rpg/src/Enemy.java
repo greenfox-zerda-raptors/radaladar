@@ -15,4 +15,8 @@ public class Enemy extends  Character {
         this.sp = dice(this.level);
         this.hasKey = hasKey;
     }
+
+    public boolean hasKey() {
+        return hasKey;
+    }
 }

@@ -1,9 +1,5 @@
 /// Created by BB on 2016-12-07.
 
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.IOException;
-
 public class Hero extends Character {
 
     /// Constructor
@@ -11,6 +7,7 @@ public class Hero extends Character {
     public Hero() {
         this.filename = "src/images/hero-down.png";
         this.setImage();
+        this.level = 1;
         this.position = new int[] {0,0};
         this.hpMax = 20 + dice(3);
         this.hpCurrent = this.hpMax;
@@ -22,6 +19,7 @@ public class Hero extends Character {
     /// Methods
 
     public void levelUp() {
+        this.level++;
         this.hpMax = this.hpMax+dice(1);
         this.dp = this.dp+dice(1);
         this.sp = this.sp+dice(1);

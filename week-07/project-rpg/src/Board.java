@@ -1,23 +1,20 @@
 /// Created by BB on 2016-12-05.
 
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.io.File;
 
 public class Board extends JComponent {
-    private Map map = new Map();
+    private Map mapGraphics;
 
     /// Constructor
 
-    public Board() {
+    public Board(JPanel panel, JLabel label, int level, Hero hero) {
         setPreferredSize(new Dimension(720, 720));
         setVisible(true);
         setFocusable(true);
-        addKeyListener(new MoveLogic(this, this.map));
+        Map map = new Map(level, hero);
+        mapGraphics = map;
+        addKeyListener(new MoveLogic(this, map, panel, label, level, hero));
     }
 
     /// Graphics override
@@ -25,10 +22,10 @@ public class Board extends JComponent {
     @Override
     public void paint(Graphics graphics) {
         super.paint(graphics);
-        for (Tile tile : map.getTiles()) {
+        for (Tile tile : mapGraphics.getTiles()) {
             tile.draw(graphics);
         }
-        for (GameObject entity : map.getEntities()) {
+        for (GameObject entity : mapGraphics.getEntities()) {
             entity.draw(graphics);
         }
     }

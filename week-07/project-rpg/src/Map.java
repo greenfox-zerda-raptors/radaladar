@@ -1,12 +1,10 @@
 /// Created by BB on 2016-12-05.
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
 public class Map {
-    private int level = 0;
+    private int level;
     private int[][] mapFloor;
     private ArrayList<Tile> tiles = new ArrayList<>();
     private Hero hero;
@@ -14,8 +12,8 @@ public class Map {
 
     /// Constructor
 
-    public Map() {
-        this.level += 1;
+    public Map(int level, Hero hero) {
+        this.level = level;
         this.mapFloor = generateMapFloor();
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -26,7 +24,7 @@ public class Map {
                 }
             }
         }
-        this.hero = new Hero();
+        this.hero = hero;
         this.entities.add(new Enemy(enemyPlacement(), getMonsterLevel(), true));
         Random random = new Random();
         int numberOfEnemies = 1 + random.nextInt(3);
@@ -36,7 +34,6 @@ public class Map {
         this.entities.add(new Boss(enemyPlacement(), getMonsterLevel()));
         this.entities.add(this.hero);
     }
-
 
     /// Map generation & restrictions
 
@@ -159,4 +156,7 @@ public class Map {
         return mapFloor;
     }
 
+    public int getLevel() {
+        return level;
+    }
 }
