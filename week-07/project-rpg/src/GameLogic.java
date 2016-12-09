@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MoveLogic implements KeyListener {
+public class GameLogic implements KeyListener {
     private Board board;
     private Map map;
     private JPanel panel;
@@ -18,7 +18,7 @@ public class MoveLogic implements KeyListener {
 
     /// Constructor
 
-    public MoveLogic(Board board, Map map, JPanel panel, JLabel label, int level, Hero hero) {
+    public GameLogic(Board board, Map map, JPanel panel, JLabel label, int level, Hero hero) {
         this.board = board;
         this.map = map;
         this.panel = panel;

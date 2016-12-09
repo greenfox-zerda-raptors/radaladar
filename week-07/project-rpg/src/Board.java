@@ -14,7 +14,7 @@ public class Board extends JComponent {
         setFocusable(true);
         Map map = new Map(level, hero);
         mapGraphics = map;
-        addKeyListener(new MoveLogic(this, map, panel, label, level, hero));
+        addKeyListener(new GameLogic(this, map, panel, label, level, hero));
         SoundPlayer.loopStop();
         if (level == 1) {
             SoundPlayer.playFX(SoundPlayer.openingTheme);
