@@ -32,7 +32,7 @@ public class SoundPlayer {
         try {
             loop = AudioSystem.getClip();
             loop.open(AudioSystem.getAudioInputStream(audio));
-            loop.stop();
+            loopStop();
             loop.start();
             loop.loop(Clip.LOOP_CONTINUOUSLY);
         } catch (Exception exc) {

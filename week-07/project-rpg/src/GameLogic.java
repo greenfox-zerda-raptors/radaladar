@@ -72,6 +72,8 @@ public class GameLogic implements KeyListener {
 
     /// Methods
 
+    /// Movement
+
     public void move(int i){
         map.getHero().faceDirection(i);
         int[] check = moveCheck(i);
