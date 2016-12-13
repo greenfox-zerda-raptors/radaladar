@@ -27,9 +27,7 @@ public class GuavaTasks {
         Car car4 = new Car(4, "Volvo", 29000, "XC90");
         Car car5 = new Car(4, "Volvo", 12900, "V40");
 
-        // TODO: Initialize cars list with car variables above. You should use Lists.newArrayList() utils of Guava.
         cars = Lists.newArrayList(car1, car2, car3, car4, car5);
-        // END of your implementation part
         this.carTitles = generateCarTitles();
     }
 
