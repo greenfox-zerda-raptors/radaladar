@@ -3,3 +3,10 @@
 */*/out/
 */*.iml
 */*/*.iml
+
+# Gradle
+*/*/.gradle/
+*/*/gradle/
+*/*/build/
+*/*/gradlew
+*/*/gradlew.bat
