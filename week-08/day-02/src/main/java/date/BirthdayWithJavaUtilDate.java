@@ -38,6 +38,21 @@ public final class BirthdayWithJavaUtilDate implements BirthdayCalculator<Date> 
         int year1 = today.getYear();
         int year2 = birthday.getYear();
         int age = year1 - year2;
+        int month1 = today.getMonth();
+        int month2 = birthday.getMonth();
+        if (month1 < month2) {
+            age--;
+        }
+        if (month1 == month2) {
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(today);
+            int day1 = cal.get(Calendar.DAY_OF_MONTH);
+            cal.setTime(birthday);
+            int day2 = cal.get(Calendar.DAY_OF_MONTH);
+            if (day1 < day2) {
+                age--;
+            }
+        }
         return age;
     }
 
