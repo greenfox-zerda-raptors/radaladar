@@ -87,7 +87,8 @@ public class TestJodaTimeBirthdayCalculator {
         if (now.getDayOfYear() == date.getDayOfYear()) {
             expected = 0;
         } else if (now.getDayOfYear() > date.getDayOfYear()) {
-            Interval interval = new Interval(now, new DateTime(now.getYear() + 1, date.getMonthOfYear(), date.getDayOfMonth(), 12, 0, 0));
+            DateTime end = new DateTime(now.getYear()+1, date.getMonthOfYear(), date.getDayOfMonth(), now.getHourOfDay(), now.getMinuteOfHour(), now.getSecondOfMinute()+1);
+            Interval interval = new Interval(now, end);
             expected = (int) interval.toDuration().getStandardDays();
         } else {
             DateTime end = new DateTime(now.getYear(), date.getMonthOfYear(), date.getDayOfMonth(), now.getHourOfDay(), now.getMinuteOfHour(), now.getSecondOfMinute());
