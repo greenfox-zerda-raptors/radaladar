@@ -1,0 +1,19 @@
+group 'hu.greenfox'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'joda-time', name: 'joda-time', version: '2.9.6'
+    compile group: 'guava', name: 'guava', version: '20.0'
+    compile group: 'slf4j-log4j12', name: 'slf4j-log4j12', version: '1.7.21'
+}
+
+
