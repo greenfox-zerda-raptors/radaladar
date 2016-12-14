@@ -21,19 +21,18 @@ public class Workshop03 {
         TableUtils.createTableIfNotExists(connectionSource, Account.class);
         TableUtils.createTableIfNotExists(connectionSource, Address.class);
 
-        Dao<Account, String> accountDao =
-                DaoManager.createDao(connectionSource, Account.class);
+        Dao<Account, String> accountDao = DaoManager.createDao(connectionSource, Account.class);
 
-        Address caAddress = new Address(1, "aaa", "bbb", 1111, "ccc");
-        Account account = new Account(1, "Captain America", "uejnsd632**234.", caAddress);
+        Account account = new Account("Captain America", "uejnsd632**234.",
+                new Address("Andrassy ut 66", "Budapest", 1061, "Hungary"));
         createAccountIfNotExists(accountDao, account);
 
-        account = accountDao.queryForId("1");
-        System.out.printf("Account: " + account.toString());
+        account = accountDao.queryForId("Captain America");
+        System.out.println("Account: " + account.toString());
     }
 
     private static void createAccountIfNotExists(Dao<Account, String> accountDao, Account acc) throws SQLException {
-        if(accountDao.queryForId(Integer.toString(acc.getId())) == null) {
+        if(accountDao.queryForId(acc.getName()) == null) {
             accountDao.create(acc);
         }
     }

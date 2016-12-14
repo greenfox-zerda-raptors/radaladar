@@ -13,18 +13,18 @@ public class Workshop01 {
 
         ConnectionSource connectionSource = new JdbcConnectionSource(databaseUrl);
 
-        Dao<Account, String> accountDao =
-                DaoManager.createDao(connectionSource, Account.class);
+        Dao<OldAccount, String> accountDao =
+                DaoManager.createDao(connectionSource, OldAccount.class);
 
-        TableUtils.createTable(connectionSource, Account.class);
+        TableUtils.createTable(connectionSource, OldAccount.class);
 
-        Account account = new Account();
+        OldAccount account = new OldAccount();
         account.setName("Captain America");
         account.setPassword("uejnsd632**234.");
 
         accountDao.create(account);
 
-        Account account2 = accountDao.queryForId("Captain America");
+        OldAccount account2 = accountDao.queryForId("Captain America");
         System.out.println("Account: " + account2.getName());
     }
 }

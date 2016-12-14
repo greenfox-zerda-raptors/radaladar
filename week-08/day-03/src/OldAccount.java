@@ -1,30 +1,22 @@
+/// Created by BB on 2016-12-14.
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /// Created by BB on 2016-12-14.
 
 @DatabaseTable
-public class Account {
+public class OldAccount {
     @DatabaseField(id = true)
     private String name;
     @DatabaseField
     private String password;
-    @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
-    private Address address;
 
-    public Account() {
-    }
+    public OldAccount() {}
 
-    public Account(String name, String password) {
+    public OldAccount(String name, String password) {
         this.name = name;
         this.password = password;
-        this.address = null;
-    }
-
-    public Account(String name, String password, Address address) {
-        this.name = name;
-        this.password = password;
-        this.address = address;
     }
 
     public void setPassword(String password) {
@@ -41,6 +33,6 @@ public class Account {
 
     @Override
     public String toString() {
-        return String.format("{\nname = %s\n%s\n}", name, address.toString());
+        return String.format("{\nname = %s\npassword= %s\n}", name, password);
     }
 }

@@ -3,10 +3,13 @@
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,34 +22,29 @@ public class Workshop02 {
 
         ConnectionSource connectionSource = new JdbcConnectionSource(databaseUrl);
 
-        TableUtils.createTableIfNotExists(connectionSource, Account.class);
+        TableUtils.createTableIfNotExists(connectionSource, OldAccount.class);
 
-        Dao<Account, String> accountDao = DaoManager.createDao(connectionSource, Account.class);
+        Dao<OldAccount, String> accountDao = DaoManager.createDao(connectionSource, OldAccount.class);
 
-        Account account = new Account("Captain America", "uejnsd632**234.");
-        createAccountIfNotExists(accountDao, account);
-        account = new Account("Iron Man","");
-        createAccountIfNotExists(accountDao, account);
-        account = new Account("Hulk","");
-        createAccountIfNotExists(accountDao, account);
-        account = new Account("Loki","");
-        createAccountIfNotExists(accountDao, account);
-        account = new Account("Wolverine","");
-        createAccountIfNotExists(accountDao, account);
+        ArrayList<String> names = new ArrayList<>(Arrays.asList("Captain America", "Iron Man", "Wolverine", "Hulk", "Loki"));
+        ArrayList<String> passwords = new ArrayList<>(Arrays.asList("uejnsd632**234.", "fdghj", "ipokn644hr", "3qyjyu78", "43tjdtu9"));
 
-        account = accountDao.queryForId("Captain America");
-        System.out.println("Account: " + account.toString());
 
-        List<Account> accountlist = accountDao.queryBuilder()
-                .selectColumns("name")
-                .orderBy("name", true)
-                .query();
-        for (Account acc : accountlist) {
-            System.out.println(acc.getName());
+        for(int i = 0; i < names.size(); i++) {
+            createAccountIfNotExists(accountDao, new OldAccount(names.get(i), passwords.get(i)));
+        }
+
+        QueryBuilder<OldAccount, String> queryBuilder = accountDao.queryBuilder();
+        queryBuilder.orderBy("name", true);
+        PreparedQuery<OldAccount> preparedQuery = queryBuilder.prepare();
+        List<OldAccount> accounts = accountDao.query(preparedQuery);
+
+        for (OldAccount temp : accounts) {
+            System.out.println(temp.getName());
         }
     }
 
-    private static void createAccountIfNotExists(Dao<Account, String> accountDao, Account acc) throws SQLException {
+    private static void createAccountIfNotExists(Dao<OldAccount, String> accountDao, OldAccount acc) throws SQLException {
         if(accountDao.queryForId(acc.getName()) == null) {
             accountDao.create(acc);
         }

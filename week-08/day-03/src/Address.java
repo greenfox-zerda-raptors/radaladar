@@ -3,42 +3,31 @@
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "address")
+@DatabaseTable
 public class Address {
-
-    @DatabaseField(id = true)
+    @DatabaseField(generatedId = true)
     private int id;
-    @DatabaseField(canBeNull = true)
+    @DatabaseField
     private String street;
-    @DatabaseField(canBeNull = true)
+    @DatabaseField
     private String city;
-    @DatabaseField(canBeNull = true)
+    @DatabaseField
     private int postcode;
-    @DatabaseField(canBeNull = true)
+    @DatabaseField
     private String country;
 
-    public Address() {}
+    public Address() {
+    }
 
-    public Address(int id, String street, String city, int postcode, String country) {
-        this.id = id;
+    public Address(String street, String city, int postcode, String country) {
         this.street = street;
         this.city = city;
         this.postcode = postcode;
         this.country = country;
     }
 
+    @Override
     public String toString() {
-        StringBuilder str = new StringBuilder();
-        str.append("{\n");
-        str.append("postCode = ");
-        str.append(this.postcode);
-        str.append("city = ");
-        str.append(this.city);
-        str.append("country = ");
-        str.append(this.country);
-        str.append("street = ");
-        str.append(this.street);
-        str.append("\n}");
-        return str.toString();
+        return String.format("{\npostcode = %d\ncity = %s\ncountry = %s\nstreet = %s\n}", postcode, city, country, street);
     }
 }
