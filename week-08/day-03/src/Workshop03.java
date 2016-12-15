@@ -23,9 +23,11 @@ public class Workshop03 {
 
         Dao<Account, String> accountDao = DaoManager.createDao(connectionSource, Account.class);
 
-        Account account = new Account("Captain America", "uejnsd632**234.",
-                new Address("Andrassy ut 66", "Budapest", 1061, "Hungary"));
+        Address address = new Address("Andrassy ut 66", "Budapest", 1061, "Hungary");
+        Account account = new Account("Captain America", "uejnsd632**234.", address);
+        Account account2 = new Account("Hulk", "smash", address);
         createAccountIfNotExists(accountDao, account);
+        createAccountIfNotExists(accountDao, account2);
 
         account = accountDao.queryForId("Captain America");
         System.out.println("Account: " + account.toString());
