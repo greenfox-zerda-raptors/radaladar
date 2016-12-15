@@ -18,11 +18,10 @@ import java.util.List;
 @ToString (exclude = "childrenNumber")
 
 public abstract class AbstractAnimal implements Animal {
-    @Setter (AccessLevel.NONE)
-    private String name;
+    @Setter (AccessLevel.NONE) private String name;
     private LocalDate birthDate;
 
-    protected List<? extends Animal> children = Lists.newArrayList();
+    @Singular protected List<? extends Animal> children = Lists.newArrayList();
     protected Integer childrenNumber = this.children.size();
     protected Long movedDistanceInMilliMeters = 0L;
     protected Double happiness;
@@ -51,9 +50,4 @@ public abstract class AbstractAnimal implements Animal {
     public ImmutableList<? extends Animal> getChildren() {
         return ImmutableList.copyOf(this.children);
     }
-
-    protected boolean canEqual(Object other) {
-        return other instanceof AbstractAnimal;
-    }
-
 }
