@@ -2,6 +2,7 @@ package lombok.animals;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.foods.Food;
@@ -17,6 +18,7 @@ import java.util.List;
 @Setter
 
 public abstract class AbstractAnimal implements Animal {
+    @Setter (AccessLevel.NONE)
     private String name;
     private LocalDate birthDate;
 
@@ -48,18 +50,6 @@ public abstract class AbstractAnimal implements Animal {
 
     public ImmutableList<? extends Animal> getChildren() {
         return ImmutableList.copyOf(this.children);
-    }
-
-    public void setMovedDistanceInMilliMeters(Long movedDistanceInMilliMeters) {
-        this.movedDistanceInMilliMeters = movedDistanceInMilliMeters;
-    }
-
-    public void setHappiness(Double happiness) {
-        this.happiness = happiness;
-    }
-
-    public void setWeightInGram(Long weightInGram) {
-        this.weightInGram = weightInGram;
     }
 
     public boolean equals(Object o) {
