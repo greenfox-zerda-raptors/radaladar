@@ -1,5 +1,6 @@
 package lombok.animals;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.foods.Food;
 
@@ -36,26 +37,8 @@ public class Mouse extends AbstractAnimal {
         return "Mouse(super=" + super.toString() + ")";
     }
 
-    public boolean equals(Object o) {
-        if (o == this) {
-            return true;
-        } else if (!(o instanceof Mouse)) {
-            return false;
-        } else {
-            Mouse other = (Mouse) o;
-            return !other.canEqual(this) ? false : super.equals(o);
-        }
-    }
-
     protected boolean canEqual(Object other) {
         return other instanceof Mouse;
-    }
-
-    public int hashCode() {
-        boolean PRIME = true;
-        byte result = 1;
-        int result1 = result * 59 + super.hashCode();
-        return result1;
     }
 
     public static class MouseBuilder {
