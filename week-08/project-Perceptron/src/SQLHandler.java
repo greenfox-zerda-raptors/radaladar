@@ -75,7 +75,7 @@ public class SQLHandler {
 
     private static void config() {
         properties.setProperty("user", "root");
-        properties.setProperty("password", "");
+        properties.setProperty("password", "???");
         properties.setProperty("useSSL", "false");
         properties.setProperty("autoReconnect", "true");
     }
