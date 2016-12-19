@@ -7,7 +7,7 @@
 </head>
 <body>
 <p th:each="hello : ${hellos}">
-<p th:text=" ${hello} +' ' + ${name} + '!'"/>
+<p th:style="'font-size:'+${hello[2]}+'px;color:'+${hello[1]}+';'" th:text=" ${hello[0]} +' ' + ${name} + '!'"/>
 </p>
 <p th:text="'This site was loaded '+ ${counter} + ' times since last server start.'"/>
 </body>
