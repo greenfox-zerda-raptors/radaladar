@@ -16,8 +16,14 @@ public class AppMain {
             p.getInputData();
             p.training();
             ArrayList<double[]> testCases = generateTestCases();
+            int counter = 1;
+            System.out.println("--Testing Start--");
             for (double[] test : testCases) {
+                System.out.println("Test #" + counter);
+                System.out.println("Coordinates: " + test[0] + ", " + test[1]);
+                System.out.println("Category: " + test[2]);
                 p.categorizationTest(new Input(test));
+                counter++;
             }
         } catch (Exception ex) {
             ex.printStackTrace();

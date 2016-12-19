@@ -44,8 +44,9 @@ public class Perceptron {
     }
 
     public void categorizationTest(Input toCategorize) {
-        System.out.println("Testing element.");
+        System.out.println("Testing...");
         double sum = summation(toCategorize);
+        System.out.println("Actual category: " + toCategorize.getActual() + " Calculated category: " + sum);
         if (toCategorize.getActual() == thresholding(sum)) {
             System.out.println("Success.");
         } else {

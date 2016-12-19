@@ -19,7 +19,7 @@ public class SQLHandler {
         statement = conn.createStatement();
 
         System.out.println("Dropping old data table...");
-        statement.executeUpdate("DROP TABLE DATA");
+        statement.executeUpdate("DROP TABLE IF EXISTS DATA");
 
         System.out.println("Creating new data table...");
         StringBuilder sql = new StringBuilder();
@@ -75,7 +75,7 @@ public class SQLHandler {
 
     private static void config() {
         properties.setProperty("user", "root");
-        properties.setProperty("password", "???");
+        properties.setProperty("password", "Asdasd11_");
         properties.setProperty("useSSL", "false");
         properties.setProperty("autoReconnect", "true");
     }
