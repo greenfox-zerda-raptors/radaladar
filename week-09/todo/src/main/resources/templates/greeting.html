@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--<link rel="stylesheet" type="text/css" href="/greeting.css"/>-->
+</head>
+<body>
+<p th:text="'Hello, ' + ${name}"></p>
+<p th:text="${#dates.format(date, 'yyyy-MM-dd hh:mm:ss')}"></p>
+</body>
+</html>
