@@ -5,7 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<p th:text="'Hello, ' + ${name}"></p>
-<p th:text="${#dates.format(date, 'yyyy-MM-dd hh:mm:ss')}"></p>
+<ul th:each="todo : ${todos}">
+    <li th:text="${todo.id} + ' ' + ${todo.title}"></li>
+</ul>
 </body>
 </html>
