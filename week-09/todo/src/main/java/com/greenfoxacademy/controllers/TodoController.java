@@ -18,8 +18,8 @@ public class TodoController {
     }
 
     @RequestMapping(value = {"/", "/list"})
-    public String list(Model model, @RequestParam(required = false, defaultValue = "false") String active){
-        model.addAttribute("active", Boolean.valueOf(active));
+    public String list(Model model, @RequestParam(required = false, defaultValue = "false") boolean active){
+        model.addAttribute("active", active);
         model.addAttribute("todos", todoService.getTodos());
         return "/todo/list";
     }
