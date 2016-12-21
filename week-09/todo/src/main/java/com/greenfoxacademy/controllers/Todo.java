@@ -52,4 +52,5 @@ public class Todo {
     public void setDone(boolean done) {
         isDone = done;
     }
+
 }
