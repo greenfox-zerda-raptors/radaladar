@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/index.css}"/>
+</head>
+<body>
+        <h1>Calorie Counter App</h1>
+        <div class="container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Calories</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="meal : ${meals}">
+                    <td th:text="${#dates.format(meal.date, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${meal.type}"></td>
+                    <td th:text="${meal.description}"></td>
+                    <td th:text="${meal.calories}"></td>
+                    <td><a class="button">Edit</a><a class="button">Delete</a></td>
+                </tr>
+                <tr>
+                    <td/>
+                    <td/>
+                    <td>Total Calories:</td>
+                    <td th:text="${#aggregates.sum(totalcalories)}" class="totalcalories"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</body>
+</html>

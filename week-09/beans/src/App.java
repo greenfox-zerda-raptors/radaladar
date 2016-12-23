@@ -10,15 +10,15 @@ public class App {
         ApplicationContext ctx =
                 new AnnotationConfigApplicationContext(HelloWorldConfig.class);
 
-        HelloWorld helloWorld = (HelloWorld) ctx.getBean(HelloWorld.class);
+        HelloWorld helloWorld = (HelloWorld) ctx.getBean("helloWorld");
 
         helloWorld.setMessage("Hello World!");
         helloWorld.getMessage();
 
-        WithFries withFries = (WithFries) ctx.getBean(WithFries.class);
+
+        WithFries withFries = (WithFries) ctx.getBean("withFries",false, "sdfsdf");
         System.out.println(withFries.toString());
         withFries.toggleFlSalted();
         System.out.printf("Just toggled withFries and now they are '%s'.", withFries.toString());
-
     }
 }
