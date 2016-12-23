@@ -6,41 +6,43 @@ package com.greenfox.bb.myapp;
  */
 
 public class Message {
-    private String name;
-    private String time;
-    private String text;
+    private String username;
+    private String created_at;
+    private String body;
 
-    public Message(String name, String time, String text) {
-        this.name = name;
-        this.time = time;
-        this.text = text;
+    public Message() {
+    }
+
+    public Message(String username, String body) {
+        this.username = username;
+        this.body = body;
     }
 
     public String toString(){
-        return name +": " + text + " (" + time + ")";
+        return username +": " + body + " (" + created_at + ")";
     }
 
-    public String getName() {
-        return name;
+    public String getUser() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(String username) {
+        this.username = username;
     }
 
-    public String getTime() {
-        return time;
+    public String getCreated_at() {
+        return created_at;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 
-    public String getText() {
-        return text;
+    public String getBody() {
+        return body;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setText(String body) {
+        this.body = body;
     }
 }

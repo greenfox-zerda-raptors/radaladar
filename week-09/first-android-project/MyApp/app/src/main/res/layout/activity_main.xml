@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/button"
             android:onClick="sendMessage"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -48,7 +49,18 @@
         <ListView
             android:id="@+id/viewMessages"
             android:layout_width="match_parent"
-            android:layout_height="418dp" />
+            android:layout_height="392dp" />
+
     </LinearLayout>
+
+    <Button
+        android:text="Refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/refresh"
+        android:layout_above="@+id/horizontalLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="refresh"/>
 
 </RelativeLayout>
