@@ -19,7 +19,7 @@
             <tr th:each="post : ${posts}">
                 <td th:text="${post.id}"></td>
                 <td th:text="${post.score}"></td>
-                <td><a th:href="@{'/upvote/'+${post.id}}" th:text="'+'"></a> | <a th:href="@{'/downvote/'+${post.id}}" th:text="'-'"></a></td>
+                <td><a th:href="@{'/vote/1/'+${post.id}}" th:text="'+'"></a> | <a th:href="@{'/vote/-1/'+${post.id}}" th:text="'-'"></a></td>
                 <td th:text="${post.content}"></td>
                 <td><a th:href="@{'/del/'+${post.id}}" th:text="x"></a></td>
                 <td><a th:href="@{'/edit/'+${post.id}}" th:text="edit"></a></td>
