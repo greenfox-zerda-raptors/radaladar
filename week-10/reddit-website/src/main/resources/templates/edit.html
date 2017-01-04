@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>New Post - Reddit-like Website</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    <form method="post" name="comment_form" id="comment_form" action="/update" role="form">
+        <div class="form-group">
+            <label for="content">Post</label>
+            <textarea rows="5" class="form-control" id="content" name="content" th:text="${post.content}"/>
+        </div>
+        <input type="hidden" id="post_id" rows="5" class="form-control" name="post_id" th:value="${post.id}"/>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+</html>
