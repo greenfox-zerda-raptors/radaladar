@@ -26,7 +26,8 @@
             android:text="..."
             android:ems="10"
             android:id="@+id/editText"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@android:color/white"/>
 
         <Button
             android:text="Send"

@@ -19,7 +19,7 @@ public class Message {
     }
 
     public String toString(){
-        return username +": " + body + " (" + created_at + ")";
+        return username +": " + body + " (" + created_at.substring(0,9) + ")";
     }
 
     public String getUser() {

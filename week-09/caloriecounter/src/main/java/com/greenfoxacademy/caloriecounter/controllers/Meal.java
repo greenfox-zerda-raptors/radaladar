@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Meal {
+    int id;
     private String date;
     private String type;
     private String description;

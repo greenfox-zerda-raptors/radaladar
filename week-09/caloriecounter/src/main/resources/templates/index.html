@@ -19,18 +19,25 @@
                 </thead>
                 <tbody>
                 <tr th:each="meal : ${meals}">
-                    <td th:text="${#dates.format(meal.date, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${meal.date}"></td>
                     <td th:text="${meal.type}"></td>
                     <td th:text="${meal.description}"></td>
                     <td th:text="${meal.calories}"></td>
-                    <td><a class="button">Edit</a><a class="button">Delete</a></td>
+                    <td><a class="button">Edit</a><a class="button" th:href="@{'/del/'+${meal.id}}">Delete</a></td>
                 </tr>
                 <tr>
                     <td/>
                     <td/>
                     <td>Total Calories:</td>
-                    <td th:text="${#aggregates.sum(totalcalories)}" class="totalcalories"></td>
+                    <td th:text="${sum}"></td>
                 </tr>
+                <form><tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="button" th:href="@{'/addmeal'}">Add new meal</a></td>
+                </tr></form>
                 </tbody>
             </table>
         </div>
