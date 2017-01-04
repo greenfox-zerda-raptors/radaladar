@@ -31,13 +31,14 @@
                     <td>Total Calories:</td>
                     <td th:text="${sum}"></td>
                 </tr>
-                <form><tr>
+                <form method="post" name="meal_form" id="meal_form" action="/addmeal" role="form"><tr>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a class="button" th:href="@{'/addmeal'}">Add new meal</a></td>
-                </tr></form>
+                    <td><label for="type"><textarea rows="1" id="type"/></label></td>
+                    <td><label for="description"><textarea rows="1" id="description"/></label></td>
+                    <td><label for="calories"><textarea rows="1" id="calories"/></label></td>
+                    <td><button type="submit" id="submit" class="btn btn-primary">Add New Meal</button></td>
+                </tr>
+                </form>
                 </tbody>
             </table>
         </div>

@@ -1,6 +1,8 @@
 /// Created by BB on 2016-12-21.
 package com.greenfoxacademy.caloriecounter.controllers;
 
+import com.greenfoxacademy.caloriecounter.domain.Meal;
+import com.greenfoxacademy.caloriecounter.domain.MealRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,36 +11,23 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class AppController {
 
-    private SQLHandler SQLHandler;
-
     @Autowired
-    public void setSQLHandler(com.greenfoxacademy.caloriecounter.controllers.SQLHandler SQLHandler) {
-        this.SQLHandler = SQLHandler;
-    }
+    private MealRepository mealRepository;
 
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(Model model){
-        try {
-            model.addAttribute("meals", SQLHandler.loadMeals());
-            model.addAttribute("sum", SQLHandler.loadCaloriesSum());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+            model.addAttribute("meals", mealRepository.findAll());
+            int sum = 0;
+            for (Meal meal: mealRepository.findAll()) {
+                sum += meal.getCalories();
+            }
+            model.addAttribute("sum", sum);
         return "index";
     }
 
-    @RequestMapping(value = "/del/{id}")
-    public String delete(Model model, @PathVariable("id") int id){
-        try {
-        SQLHandler.deleteMeal(id);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return index(model);
-    }
-
-    @RequestMapping(value ="/addmeal")
-    public String addMeal(Model model) {
-        return "addmeal";
+    @RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
+    public String delete(Model model, @PathVariable("id") long id){
+        mealRepository.delete(id);
+        return "redirect:/index";
     }
 }

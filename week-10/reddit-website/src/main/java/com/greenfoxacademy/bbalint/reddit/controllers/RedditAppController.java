@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.persistence.OrderBy;
-
 @Controller
 public class RedditAppController {
 
@@ -37,7 +35,6 @@ public class RedditAppController {
 
     @RequestMapping(value="/del/{id}", method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable long id) {
-        Post post = repository.findOne(id);
         repository.delete(id);
         return new ModelAndView("redirect:/");
     }
