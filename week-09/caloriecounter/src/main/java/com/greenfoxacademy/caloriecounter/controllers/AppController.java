@@ -16,18 +16,26 @@ public class AppController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(Model model){
-            model.addAttribute("meals", mealRepository.findAll());
-            int sum = 0;
-            for (Meal meal: mealRepository.findAll()) {
-                sum += meal.getCalories();
-            }
-            model.addAttribute("sum", sum);
+        model.addAttribute("meals", mealRepository.findAll());
+        int sum = 0;
+        for (Meal meal: mealRepository.findAll()) {
+            sum += meal.getCalories();
+        }
+        model.addAttribute("sum", sum);
+        model.addAttribute("newmeal", new Meal());
         return "index";
     }
 
     @RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
-    public String delete(Model model, @PathVariable("id") long id){
+    public String delete(@PathVariable("id") Integer id){
         mealRepository.delete(id);
+        return "redirect:/index";
+    }
+
+    @PostMapping(value = "/addmeal")
+    public String submitNewMeal(@ModelAttribute Meal meal) {
+        meal.setDate("2017-02-01");
+        mealRepository.save(meal);
         return "redirect:/index";
     }
 }

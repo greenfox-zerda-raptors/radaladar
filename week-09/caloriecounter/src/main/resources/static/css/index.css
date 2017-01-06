@@ -1,7 +1,7 @@
 body{
     background-color: rgba(221, 214, 204, 1);
-    background-image: url("http://31.media.tumblr.com/aa221724dda828bf3764c61ad4c677d9/tumblr_mf41x8ffC41rrtbc4o1_400.gif"), url("http://25.media.tumblr.com/tumblr_mc8cbolrrd1resjnxo1_500.gif");
-    background-repeat: repeat repeat;
+    /*background-image: url("http://31.media.tumblr.com/aa221724dda828bf3764c61ad4c677d9/tumblr_mf41x8ffC41rrtbc4o1_400.gif"), url("http://25.media.tumblr.com/tumblr_mc8cbolrrd1resjnxo1_500.gif");*/
+    /*background-repeat: repeat repeat;*/
     font-family: Calibri, Arial, Helvetica, sans-serif;
     color: rgba(77, 62, 98, 1);
     margin-left: 12.5%;
@@ -11,8 +11,8 @@ body{
 }
 h1{
     background-color: rgba(221, 214, 204, 1);
-    -webkit-animation: random 1s infinite;
-    animation: random 1s infinite;
+    /*-webkit-animation: random 1s infinite;*/
+    /*animation: random 1s infinite;*/
 }
 @keyframes  random {
     15% { background-color: red; }
@@ -46,7 +46,7 @@ table{
 
 thead{
     background-color: rgb(27, 30, 36);
-    animation: random 1s infinite;
+    /*animation: random 1s infinite;*/
     color: rgb(171, 178, 185);
     text-align: left;
 }
@@ -100,9 +100,32 @@ tr td:first-child {
     box-shadow: 0px 0px 5px 2px rgba(175,180,181,1);
     color: black;
     background: #f6f8f9;
-    animation: random 1s infinite;
+    /*animation: random 1s infinite;*/
 }
 
 .button:hover{
+    animation: random 0.1s infinite;
+}
+
+button{
+    display: inline;
+    width: 100px;
+    padding: 8px 12px 8px 12px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #77aaaa;
+    font-family: Arial sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 5px 2px rgba(175,180,181,1);
+    -moz-box-shadow: 0px 0px 5px 2px rgba(175,180,181,1);
+    box-shadow: 0px 0px 5px 2px rgba(175,180,181,1);
+    color: black;
+    background: #f6f8f9;
+}
+
+button:hover{
     animation: random 0.1s infinite;
 }

@@ -24,4 +24,11 @@ public class Meal {
     private String date;
     private String type;
     private String description;
+
+    public Meal(int calories, String date, String type, String description){
+        this.calories = calories;
+        this.date = date;
+        this.type = type;
+        this.description = description;
+    }
 }
