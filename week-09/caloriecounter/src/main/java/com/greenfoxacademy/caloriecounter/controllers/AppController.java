@@ -18,10 +18,13 @@ public class AppController {
     public String index(Model model){
         model.addAttribute("meals", mealRepository.findAll());
         int sum = 0;
+        int count = 0;
         for (Meal meal: mealRepository.findAll()) {
             sum += meal.getCalories();
+            count++;
         }
         model.addAttribute("sum", sum);
+        model.addAttribute("avgpermeal", (double)sum/count);
         model.addAttribute("newmeal", new Meal());
         return "index";
     }

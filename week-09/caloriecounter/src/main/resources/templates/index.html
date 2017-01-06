@@ -27,8 +27,8 @@
                     <td><a class="button">Edit</a><a class="button" th:href="@{'/del/'+${meal.id}}">Delete</a></td>
                 </tr>
                 <tr>
-                    <td/>
-                    <td/>
+                    <td >Average Calories/Meal:</td>
+                    <td th:text="${#numbers.formatDecimal(avgpermeal, 0, 2)}"></td>
                     <td>Total Calories:</td>
                     <td th:text="${sum}"></td>
                 </tr>
