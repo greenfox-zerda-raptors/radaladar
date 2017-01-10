@@ -1,7 +1,10 @@
 body{
     background-color: rgba(221, 214, 204, 1);
-    /*background-image: url("http://31.media.tumblr.com/aa221724dda828bf3764c61ad4c677d9/tumblr_mf41x8ffC41rrtbc4o1_400.gif"), url("http://25.media.tumblr.com/tumblr_mc8cbolrrd1resjnxo1_500.gif");*/
-    /*background-repeat: repeat repeat;*/
+    /*background-image: url("http://i.perezhilton.com/wp-content/uploads/2015/08/kalteen-bars.gif");*/
+    /*background-image: url("https://s-media-cache-ak0.pinimg.com/originals/fc/ce/ea/fcceea171d0e04e2bf8e7fe5729c318e.gif");*/
+    /*background-repeat: repeat;*/
+    background-image: url("http://31.media.tumblr.com/aa221724dda828bf3764c61ad4c677d9/tumblr_mf41x8ffC41rrtbc4o1_400.gif"), url("http://25.media.tumblr.com/tumblr_mc8cbolrrd1resjnxo1_500.gif");
+    background-repeat: repeat repeat;
     font-family: Calibri, Arial, Helvetica, sans-serif;
     color: rgba(77, 62, 98, 1);
     margin-left: 12.5%;

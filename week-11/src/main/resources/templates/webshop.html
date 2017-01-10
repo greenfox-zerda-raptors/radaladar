@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>WebShop</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<table>
+    <form action="#" th:action="@{/sortBy}"  method="post">
+        Sort by:
+            <select name="property" id="property">
+            <option value="id">Id</option>
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+        </select>
+        <select name="direction" id="direction">
+            <option value="ASC">Ascending</option>
+            <option value="DESC">Descending</option>
+        </select>
+        <button type="submit">Sort</button>
+    </form>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="webshopitem : ${webshopitems}">
+            <td th:text="${webshopitem.id}"></td>
+            <td th:text="${webshopitem.name}"></td>
+            <td th:text="${webshopitem.description}"></td>
+            <td th:text="${webshopitem.price}"></td>
+            <td>
+                <form action="#" th:action="@{/addToCart}"  method="post">
+                    <button name="addToCart" th:value="${webshopitem.id}" type="addToCart">Add to Cart</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h1>Shopping Cart</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Amount</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="cartitem : ${cartitems}">
+            <td th:text="${cartitem.amount}"></td>
+            <td th:text="${cartitem.name}"></td>
+            <td th:text="${cartitem.price}"></td>
+            <td th:text="${cartitem.totalPrice}"></td>
+            <form action="#" th:action="@{'/increment/1/'+${cartitem.id}}"  method="post">
+                <td><button name="id" type="increment">+</button></td>
+            </form>
+            <form action="#" th:action="@{'/increment/-1/'+${cartitem.id}}"  method="post">
+                <td><button name="id" type="increment">-</button></td>
+            </form>
+            <form action="#" th:action="@{'/deleteall/'+${cartitem.id}}"  method="post">
+                <td><button name="id" type="deleteall">Remove from Cart</button></td>
+            </form>
+        </tr>
+        <tr>
+        <td></td><td></td><td>Total:</td><td th:text="${totalprice}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
