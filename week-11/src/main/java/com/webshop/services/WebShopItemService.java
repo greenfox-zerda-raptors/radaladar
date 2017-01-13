@@ -1,19 +1,17 @@
 /// Created by BB on 2017-01-10.
-package com.exampractice.services;
+package com.webshop.services;
 
-import com.exampractice.domain.Session;
-import com.exampractice.domain.WebShopItem;
-import com.exampractice.domain.WebShopItemRepository;
+import com.webshop.domain.Session;
+import com.webshop.domain.WebShopItem;
+import com.webshop.domain.WebShopItemRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class WebShopItemService {

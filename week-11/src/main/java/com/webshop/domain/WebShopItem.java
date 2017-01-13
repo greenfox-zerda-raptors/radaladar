@@ -1,5 +1,5 @@
 /// Created by BB on 2017-01-10.
-package com.exampractice.domain;
+package com.webshop.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

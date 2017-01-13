@@ -1,4 +1,4 @@
-package com.exampractice;
+package com.webshop;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

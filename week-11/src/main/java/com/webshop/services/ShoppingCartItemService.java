@@ -1,9 +1,9 @@
 /// Created by BB on 2017-01-10.
-package com.exampractice.services;
+package com.webshop.services;
 
-import com.exampractice.domain.ShoppingCartItem;
-import com.exampractice.domain.ShoppingCartItemRepository;
-import com.exampractice.domain.WebShopItem;
+import com.webshop.domain.ShoppingCartItem;
+import com.webshop.domain.ShoppingCartItemRepository;
+import com.webshop.domain.WebShopItem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

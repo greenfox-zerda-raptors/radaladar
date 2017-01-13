@@ -1,9 +1,9 @@
 /// Created by BB on 2017-01-10.
-package com.exampractice.controllers;
+package com.webshop.controllers;
 
-import com.exampractice.domain.Session;
-import com.exampractice.services.ShoppingCartItemService;
-import com.exampractice.services.WebShopItemService;
+import com.webshop.domain.Session;
+import com.webshop.services.ShoppingCartItemService;
+import com.webshop.services.WebShopItemService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,7 +60,8 @@ public class WebShopController {
 
     @RequestMapping(value="/turnOne/{page}")
     public String turnOne(@PathVariable int page){
-        if ((session.getPage() != 0 && page == -1) || (session.getPage() != webShopItemService.maxPages(session)-1 && page == 1)) {
+        if ((session.getPage() != 0 && page == -1) ||
+                (session.getPage() != webShopItemService.maxPages(session)-1 && page == 1)) {
             session.setPage(session.getPage()+page);
         }
         return "redirect:/webshop";

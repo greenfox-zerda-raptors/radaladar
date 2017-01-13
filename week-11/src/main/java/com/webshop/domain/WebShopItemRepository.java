@@ -1,10 +1,7 @@
-package com.exampractice.domain;/// Created by BB on 2017-01-10.
+package com.webshop.domain;/// Created by BB on 2017-01-10.
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
