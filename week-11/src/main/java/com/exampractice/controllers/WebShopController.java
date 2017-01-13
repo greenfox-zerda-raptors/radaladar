@@ -1,6 +1,7 @@
 /// Created by BB on 2017-01-10.
 package com.exampractice.controllers;
 
+import com.exampractice.domain.Session;
 import com.exampractice.services.ShoppingCartItemService;
 import com.exampractice.services.WebShopItemService;
 
@@ -21,12 +22,13 @@ public class WebShopController {
     @Autowired
     private ShoppingCartItemService shoppingCartItemService;
 
+    @Autowired
+    private Session session;
 
     @GetMapping(value="/webshop")
-    public String index(Model model,
-                        @RequestParam (name="property", defaultValue = "id") String property,
-                        @RequestParam (name ="direction", defaultValue = "ASC") String direction) {
-        model.addAttribute("webshopitems", webShopItemService.getSortedItems(direction, property));
+    public String index(Model model){
+        model.addAttribute("webshopitems", webShopItemService.getSortedItems(session));
+        model.addAttribute("pagecount",webShopItemService.pageCount(session));
         model.addAttribute("cartitems", shoppingCartItemService.getItems());
         model.addAttribute("totalprice", shoppingCartItemService.getTotalPrice());
         return "webshop";
@@ -36,7 +38,32 @@ public class WebShopController {
     public String sortBy(Model model,
                          @RequestParam (name="property") String property,
                          @RequestParam (name ="direction") String direction)  {
-        return "redirect:/webshop?property=" + property + "&direction=" + direction;
+        session.setPage(0);
+        session.setProperty(property);
+        session.setDirection(direction);
+        return "redirect:/webshop";
+    }
+
+    @RequestMapping(value="/itemsPerPage")
+    public String itemsPerPage(Model model,
+                         @RequestParam (name="limit") int limit) {
+        session.setPage(0);
+        session.setLimit(limit);
+        return "redirect:/webshop";
+    }
+
+    @RequestMapping(value="/page/{page}")
+    public String page(@PathVariable int page){
+        session.setPage(page-1);
+        return "redirect:/webshop";
+    }
+
+    @RequestMapping(value="/turnOne/{page}")
+    public String turnOne(@PathVariable int page){
+        if ((session.getPage() != 0 && page == -1) || (session.getPage() != webShopItemService.maxPages(session)-1 && page == 1)) {
+            session.setPage(session.getPage()+page);
+        }
+        return "redirect:/webshop";
     }
 
     @RequestMapping(value="/addToCart")

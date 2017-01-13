@@ -1,0 +1,22 @@
+#items {
+    float: left;
+    width: 50%;
+}
+
+#cart{
+    float: right;
+    width: 50%;
+}
+
+#sortform {
+    margin-bottom: 20px;
+}
+
+td {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+h2 {
+    margin-top: 10px;
+}
